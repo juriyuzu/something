@@ -4,9 +4,6 @@ import main.Game;
 import main.Panel;
 import utilities.TileType;
 
-import java.awt.*;
-import java.util.HashMap;
-
 public class Static extends Tile {
 
     public Static(Panel panel, Game game, int x, int y, TileType type) {
