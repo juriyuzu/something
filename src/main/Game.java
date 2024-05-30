@@ -20,11 +20,11 @@ public class Game {
     Save save;
     Random random;
     public HashMap<String, Image> images;
-    LinkedList<LinkedList<Tile>> maps;
-    LinkedList<LinkedList<Integer>> mapSizes;
+    public LinkedList<LinkedList<Tile>> maps;
+    public LinkedList<LinkedList<Integer>> mapSizes;
     Player player;
     public int tileSize;
-    int currentMap;
+    public int currentMap;
     boolean click, press;
     int pressX, pressY;
 
@@ -35,7 +35,6 @@ public class Game {
         tileSize = 70;
         save = new Save();
         random = new Random();
-        player = new Player(panel, this);
 
         images = new HashMap<>();
         {
@@ -67,6 +66,8 @@ public class Game {
                     case '1' -> maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.EXIT));
                     case '2' -> maps.getLast().add(new Block(panel, this, k * tileSize, j * tileSize));
         }}
+
+        player = new Player(this);
 
         panel.addMouseListener(new MouseListener() {
             @Override
@@ -108,6 +109,8 @@ public class Game {
 
         // draw the map
         for (Tile tile : maps.get(currentMap)) tile.draw(gg, panel.camX, panel.camY);
+
+        player.draw(gg, panel.camX, panel.camY);
     }
 
     public void start() {

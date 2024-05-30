@@ -15,6 +15,7 @@ public class Block extends Tile {
 
         type = TileType.BLOCK;
         on = true;
+        solid = true;
 
         imageOn = game.images.get("BLOCK WALL");
         imageOff = game.images.get("BLOCK FLOOR");

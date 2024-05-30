@@ -13,9 +13,9 @@ public class Static extends Tile {
         solid = type == TileType.WALL;
 
         switch (type) {
-            case TileType.WALL -> image = game.images.get("WALL");
-            case TileType.FLOOR -> image = game.images.get("FLOOR");
-            case TileType.EXIT -> image = game.images.get("EXIT");
+            case WALL -> image = game.images.get("WALL");
+            case FLOOR -> image = game.images.get("FLOOR");
+            case EXIT -> image = game.images.get("EXIT");
         }
 
     }

@@ -30,6 +30,9 @@ public class Object {
         this.h = h;
     }
 
+    public Object() {
+    }
+
     public void draw(Graphics2D gg, int camX, int camY) {
         gg.drawImage(image, x + camX, y + camY, w, h, null);
     }

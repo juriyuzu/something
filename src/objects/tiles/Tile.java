@@ -10,9 +10,9 @@ import javax.swing.*;
 public class Tile extends Object {
     Panel panel;
     Game game;
-    TileType type;
-    int size;
-    boolean solid;
+    public TileType type;
+    public int size;
+    public boolean solid;
 
     public Tile(Panel panel, Game game, int x, int y) {
         super(new ImageIcon("").getImage(), x, y, game.tileSize, game.tileSize);

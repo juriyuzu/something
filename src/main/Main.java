@@ -8,6 +8,7 @@ public class Main extends JFrame {
     Panel panel;
 
     Main() {
+        setLayout(null);
         setResizable(false);
         setUndecorated(true);
         setExtendedState(MAXIMIZED_BOTH);
