@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class Game {
     Panel panel;
-    boolean visible;
+    public boolean visible;
     Save save;
     Random random;
     public HashMap<String, Image> images;
@@ -72,19 +72,21 @@ public class Game {
         panel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                click = true;
+                if (visible) click = true;
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                press = true;
-                pressX = e.getX();
-                pressY = e.getY();
+                if (visible) {
+                    press = true;
+                    pressX = e.getX();
+                    pressY = e.getY();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                press = false;
+                if (visible) press = false;
             }
 
             @Override
@@ -114,6 +116,11 @@ public class Game {
     }
 
     public void start() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         visible = true;
         panel.camX = panel.width/2 - tileSize/2 - 13 / 2 * tileSize;
         panel.camY = panel.height/2 - tileSize/2 - 13 / 2 * tileSize;

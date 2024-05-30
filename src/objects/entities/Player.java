@@ -26,8 +26,8 @@ public class Player extends Object {
     public Player(Panel panel, Game game) {
         super();
         tileSize = game.tileSize;
-        x = 3 * tileSize;
-        y = 6 * tileSize;
+        x = 2 * tileSize;
+        y = 5 * tileSize;
         w = tileSize;
         h = tileSize;
         image = new ImageIcon("src/assets/game/player/player.png").getImage();
@@ -38,19 +38,21 @@ public class Player extends Object {
         panel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                click = true;
+                if (game.visible) click = true;
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                press = true;
-                pressX = e.getX();
-                pressY = e.getY();
+                if (game.visible) {
+                    press = true;
+                    pressX = e.getX();
+                    pressY = e.getY();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                press = false;
+                if (game.visible) press = false;
             }
 
             @Override
@@ -82,8 +84,8 @@ public class Player extends Object {
         gotoxy(x + xVel, y + yVel);
     }
 
-    void findPath() {
-        path = AStar.findPath(tileSize, game.maps.get(game.currentMap), this, game.mapSizes.get(game.currentMap));
+    void findPath(Tile tile) {
+        path = AStar.findPath(tileSize, game.maps.get(game.currentMap), this, game.mapSizes.get(game.currentMap), tile);
 
         if (path != null) {
             for (Node n : path) System.out.println(n.x + ", " + n.y);
@@ -91,20 +93,21 @@ public class Player extends Object {
         }
     }
 
-    // pressFun detects presses in the screen
     private void pressFun() {
 //        if (press && objects.get("START BUTTON").hovering(panel.curX, panel.curY) && objects.get("START BUTTON").hovering(pressX, pressY)) {
 //        } else {
 //        }
     }
 
-    // clickFun runs when the screen is clicked
     private void clickFun() {
         if (!click) return;
 
         System.out.print("screen clicked");
         for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(panel.curX - panel.camX, panel.curY - panel.camY)) {
             System.out.print("clicked tile at " + tile.getX() + ", " + tile.getY());
+            tile.image = new ImageIcon("src/assets/game/player/player.png").getImage();
+            findPath(tile);
+            break;
         }
         System.out.println();
 
