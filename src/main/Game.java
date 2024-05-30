@@ -67,7 +67,7 @@ public class Game {
                     case '2' -> maps.getLast().add(new Block(panel, this, k * tileSize, j * tileSize));
         }}
 
-        player = new Player(this);
+        player = new Player(panel, this);
 
         panel.addMouseListener(new MouseListener() {
             @Override

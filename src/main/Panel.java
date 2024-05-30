@@ -8,8 +8,10 @@ import java.awt.event.MouseMotionListener;
 public class Panel extends JPanel implements Runnable {
     int width, height;
     Thread thread;
-    int curX, curY;
-    int camX, camY;
+    public int curX;
+    public int curY;
+    public int camX;
+    public int camY;
     MainMenu mainMenu;
     Game game;
 

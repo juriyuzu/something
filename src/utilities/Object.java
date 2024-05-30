@@ -39,6 +39,8 @@ public class Object {
 
     public int getY() {return y;}
 
+    public int getX() {return x;}
+
     public int getPriorityZ() {return priorityZ;}
 
     public boolean hovering(int x, int y) {
@@ -46,5 +48,10 @@ public class Object {
                 x > this.x &&
                 y < this.y + h &&
                 y > this.y;
+    }
+
+    public void gotoxy(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }

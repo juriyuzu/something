@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="uhh">
-      <change afterPath="$PROJECT_DIR$/src/assets/game/player/player.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/AStar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Panel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Static.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Static.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Object.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,9 +26,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "juriyuzu"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/juriyuzu/something.git",
+    "accountId": "eebd148d-431c-4723-b517-d5e99e7d9afc"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2h20mtLFFcyxOoMsD7lV3R5wcxw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -44,15 +53,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/game/player" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\player" />
