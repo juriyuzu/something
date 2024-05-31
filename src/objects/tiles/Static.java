@@ -10,7 +10,9 @@ public class Static extends Tile {
         super(panel, game, x, y);
 
         this.type = type;
+
         solid = type == TileType.WALL;
+        destinationAble = type != TileType.WALL;
 
         switch (type) {
             case WALL -> image = game.images.get("WALL");

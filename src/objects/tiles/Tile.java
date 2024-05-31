@@ -13,6 +13,7 @@ public class Tile extends Object {
     public TileType type;
     public int size;
     public boolean solid;
+    public boolean destinationAble;
 
     public Tile(Panel panel, Game game, int x, int y) {
         super(new ImageIcon("").getImage(), x, y, game.tileSize, game.tileSize);
@@ -22,4 +23,6 @@ public class Tile extends Object {
         this.y = y;
         size = game.tileSize;
     }
+
+    public void clickFun() {};
 }

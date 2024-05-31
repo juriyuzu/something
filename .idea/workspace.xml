@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="not yet">
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added to tile movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Panel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Static.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Static.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/AStar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717081222481</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added to tile movement">
+      <option name="closed" value="true" />
+      <created>1717160196307</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717160196307</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +140,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="uhh" />
     <MESSAGE value="not yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="not yet" />
+    <MESSAGE value="added to tile movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="added to tile movement" />
   </component>
 </project>

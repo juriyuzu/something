@@ -79,6 +79,7 @@ public class Player extends Object {
         gg.setColor(Color.black);
         gg.setFont(new Font("Consolas", Font.BOLD, 15));
         gg.drawString(String.valueOf(pathIndex), panel.curX + 10, panel.curY + 30);
+        gg.drawString("move: " + move, panel.curX + 10, panel.curY + 45);
 
         move();
 
@@ -87,7 +88,11 @@ public class Player extends Object {
     }
 
     void move() {
-        if (!move || path == null || path.size() < 2) return;
+        if (!move || path == null || path.size() < 2) {
+            move = false;
+            path = null;
+            return;
+        }
 
         int speed = 2;
         int xVel = (path.get(pathIndex).x - path.get(pathIndex - 1).x) * speed;
@@ -110,6 +115,8 @@ public class Player extends Object {
     }
 
     void findPath() {
+        if (destination == null || !destination.destinationAble) return;
+
         path = AStar.findPath(tileSize, game.maps.get(game.currentMap), this, game.mapSizes.get(game.currentMap), destination);
         pathIndex = 1;
 
@@ -132,10 +139,13 @@ public class Player extends Object {
 
         System.out.print("screen clicked");
         for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(panel.curX - panel.camX, panel.curY - panel.camY)) {
-            stopMove = true;
             System.out.print("clicked tile at " + tile.getX() + ", " + tile.getY());
-            destination = tile;
-            if (path == null) findPath();
+            if (!move && !AStar.rectRect(tile.getX(), tile.getY(), tile.size/2, tile.size/2, x, y, tile.size/2, tile.size/2)) tile.clickFun();
+            if (!move) {
+                destination = tile;
+                if (path == null) findPath();
+            } else destination = null;
+            stopMove = true;
             break;
         }
         System.out.println();

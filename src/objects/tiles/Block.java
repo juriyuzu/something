@@ -16,6 +16,7 @@ public class Block extends Tile {
         type = TileType.BLOCK;
         on = true;
         solid = true;
+        destinationAble = false;
 
         imageOn = game.images.get("BLOCK WALL");
         imageOff = game.images.get("BLOCK FLOOR");
@@ -23,5 +24,10 @@ public class Block extends Tile {
 
     public void draw(Graphics2D gg, int camX, int camY) {
         gg.drawImage(on ? imageOn : imageOff, x + camX, y + camY, w, h, null);
+    }
+
+    public void clickFun() {
+        on = !on;
+        solid = on;
     }
 }
