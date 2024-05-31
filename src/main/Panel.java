@@ -69,6 +69,7 @@ public class Panel extends JPanel implements Runnable {
 
         mainMenu.draw(gg);
         game.draw(gg);
+        clickEffect(gg);
 
         // debug
         {
@@ -79,5 +80,14 @@ public class Panel extends JPanel implements Runnable {
         }
 
         gg.dispose();
+    }
+
+    public int clickEffect, clicks = 0;
+    void clickEffect(Graphics2D gg) {
+        if (clickEffect > 0) {
+            gg.setFont(new Font("Consolas", Font.BOLD, 100));
+            gg.drawString("CLICK " + clicks, curX, curY - 100);
+        }
+        clickEffect = Math.max(clickEffect - 1, 0);
     }
 }
