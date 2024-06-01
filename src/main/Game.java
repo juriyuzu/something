@@ -1,6 +1,7 @@
 package main;
 
 import objects.entities.Player;
+import objects.entities.Snail;
 import objects.tiles.*;
 import utilities.*;
 
@@ -20,6 +21,7 @@ public class Game {
     public LinkedList<LinkedList<Integer>> playerPos;
     public LinkedList<LinkedList<Integer>> mapSizes;
     Player player;
+    public Snail snail;
     public int tileSize;
     public int currentMap;
     boolean click, press;
@@ -27,6 +29,7 @@ public class Game {
     public boolean pause;
     public LinkedList<LinkedList<Tile>> pauseAble;
     public HUD hud;
+    public int clicks;
 
     Game(Panel panel) {
         this.panel = panel;
@@ -87,6 +90,7 @@ public class Game {
 
         hud = new HUD();
         player = new Player(panel, this);
+        snail = new Snail(this, player);
 
         panel.addMouseListener(new MouseListener() {
             @Override
@@ -131,9 +135,11 @@ public class Game {
         // draw the map
         for (Tile tile : maps.get(currentMap)) tile.draw(gg, panel.camX, panel.camY);
 
+        snail.draw(gg, panel.camX, panel.camY);
         player.draw(gg, panel.camX, panel.camY);
 
         hud.draw(gg);
+
     }
 
     public void start() {
@@ -149,6 +155,10 @@ public class Game {
         player.y = playerPos.get(currentMap).getFirst() * tileSize;
 
         pause = false;
+
+        snail.gotoxy(player.x, player.y);
+        clicks = 0;
+        snail.reset();
     }
 
     public void nextLevel(int next) {

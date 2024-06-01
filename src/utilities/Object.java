@@ -6,8 +6,8 @@ public class Object {
     public Image image;
     public int x;
     public int y;
-    protected int w;
-    protected int h;
+    public int w;
+    public int h;
     protected int priorityZ;
 
     /**

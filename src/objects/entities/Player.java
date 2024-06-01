@@ -84,6 +84,7 @@ public class Player extends Object {
         gg.setFont(new Font("Consolas", Font.BOLD, 15));
         gg.drawString(String.valueOf(pathIndex), panel.curX + 10, panel.curY + 30);
         gg.drawString("move: " + move, panel.curX + 10, panel.curY + 45);
+        gg.drawString(game.clicks + "", panel.curX + 10, panel.curY + 60);
 
         move();
 
@@ -92,6 +93,11 @@ public class Player extends Object {
     }
 
     void move() {
+        if (game.snail.visible && AStar.rectRect(game.snail.x, game.snail.y, game.snail.w/2, game.snail.h/2, x, y, w/2, h/2)) {
+            System.out.println("dead");
+            dead();
+        }
+
         if (!move || path == null || path.size() < 2) {
             move = false;
             path = null;
@@ -160,6 +166,7 @@ public class Player extends Object {
         }
         panel.clickEffect = 10;
         panel.clicks++;
+        game.clicks++;
 
         System.out.print("screen clicked");
         for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(panel.curX - panel.camX, panel.curY - panel.camY)) {
@@ -178,6 +185,10 @@ public class Player extends Object {
     }
 
     private void dead() {
+        destination = null;
+        game.pause = true;
+        move = false;
+        path = null;
         hud.hearts--;
         if (hud.hearts == 0) game.over();
         else {
