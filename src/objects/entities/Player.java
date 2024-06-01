@@ -1,6 +1,7 @@
 package objects.entities;
 
 import main.Game;
+import main.HUD;
 import main.Panel;
 import objects.tiles.Tile;
 import utilities.AStar;
@@ -26,6 +27,7 @@ public class Player extends Object {
     boolean stopMove;
     Tile destination;
     Image pathImage;
+    HUD hud;
 
     public Player(Panel panel, Game game) {
         super();
@@ -34,11 +36,13 @@ public class Player extends Object {
         y = 5 * tileSize;
         w = tileSize;
         h = tileSize;
-        image = new ImageIcon("src/assets/game/player/player.png").getImage();
         pathImage = new ImageIcon("src/assets/mainMenu/my beloved.png").getImage();
+        image = new ImageIcon("src/assets/game/player/player.png").getImage();
 
         this.panel = panel;
         this.game = game;
+        hud = game.hud;
+        move = false;
 
         panel.addMouseListener(new MouseListener() {
             @Override
@@ -94,18 +98,35 @@ public class Player extends Object {
             return;
         }
 
-        int speed = 2;
+        int speed = 3 * tileSize / 100;
         int xVel = (path.get(pathIndex).x - path.get(pathIndex - 1).x) * speed;
         int yVel = (path.get(pathIndex).y - path.get(pathIndex - 1).y) * speed;
 
         gotoxy(x + xVel, y + yVel);
         if (Math.abs(path.get(pathIndex).x * tileSize - x) < speed && Math.abs(path.get(pathIndex).y * tileSize - y) < speed) {
             gotoxy(path.get(pathIndex).x * tileSize, path.get(pathIndex).y * tileSize);
-            pathIndex++;
 
-            if (pathIndex == path.size() || stopMove) {
+            Tile tileCheck = null;
+            boolean pause = false;
+            for (Tile tile : game.pauseAble.get(game.currentMap))
+                if (tile.pauseAble && tile.x == path.get(pathIndex).x * tileSize && tile.y == path.get(pathIndex).y * tileSize) {
+                tileCheck = tile;
+                pause = true;
+                break;
+            }
+
+            pathIndex++;
+            if (pause || pathIndex == path.size() || stopMove) {
                 move = false;
                 path = null;
+                if (pause) {
+                    game.pause = true;
+                    stopMove = false;
+                    switch (tileCheck.type) {
+                        case EXIT -> game.nextLevel(game.currentMap + 1);
+                        case HAZARD -> dead();
+                    }
+                }
                 if (stopMove) {
                     stopMove = false;
                     findPath();
@@ -133,23 +154,34 @@ public class Player extends Object {
     }
 
     private void clickFun() {
-        if (!click) return;
+        if (game.pause || !click) {
+            click = false;
+            return;
+        }
         panel.clickEffect = 10;
         panel.clicks++;
 
         System.out.print("screen clicked");
         for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(panel.curX - panel.camX, panel.curY - panel.camY)) {
             System.out.print("clicked tile at " + tile.getX() + ", " + tile.getY());
+            if (move) stopMove = true;
             if (!move && !AStar.rectRect(tile.getX(), tile.getY(), tile.size/2, tile.size/2, x, y, tile.size/2, tile.size/2)) tile.clickFun();
             if (!move) {
                 destination = tile;
                 if (path == null) findPath();
             } else destination = null;
-            stopMove = true;
             break;
         }
         System.out.println();
 
         click = false;
+    }
+
+    private void dead() {
+        hud.hearts--;
+        if (hud.hearts == 0) game.over();
+        else {
+            game.start();
+        }
     }
 }

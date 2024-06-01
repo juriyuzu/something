@@ -3,7 +3,6 @@ package objects.tiles;
 import main.Game;
 import main.Panel;
 import utilities.Object;
-import utilities.TileType;
 
 import javax.swing.*;
 
@@ -14,6 +13,7 @@ public class Tile extends Object {
     public int size;
     public boolean solid;
     public boolean destinationAble;
+    public boolean pauseAble;
 
     public Tile(Panel panel, Game game, int x, int y) {
         super(new ImageIcon("").getImage(), x, y, game.tileSize, game.tileSize);

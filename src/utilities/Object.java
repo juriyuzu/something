@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Object {
     public Image image;
-    protected int x;
-    protected int y;
+    public int x;
+    public int y;
     protected int w;
     protected int h;
     protected int priorityZ;

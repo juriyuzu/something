@@ -2,7 +2,6 @@ package objects.tiles;
 
 import main.Game;
 import main.Panel;
-import utilities.TileType;
 
 import java.awt.*;
 

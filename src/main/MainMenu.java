@@ -32,19 +32,21 @@ public class MainMenu {
         panel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                click = true;
+                if (visible) click = true;
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                press = true;
-                pressX = e.getX();
-                pressY = e.getY();
+                if (visible) {
+                    press = true;
+                    pressX = e.getX();
+                    pressY = e.getY();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                press = false;
+                if (visible) press = false;
             }
 
             @Override

@@ -83,7 +83,7 @@ public class AStar {
     }
 
     public static List<Node> findPath(int size, LinkedList<Tile> map, Object location, LinkedList<Integer> mapSizes, Tile destination) {
-        int w = mapSizes.getFirst();
+        int w = mapSizes.getLast();
         int h = mapSizes.getLast();
         int[][] grid = new int[h][w];
         int lx = -1, ly = -1, dx = destination.x / size, dy = destination.y / size;

@@ -1,18 +1,14 @@
 package main;
 
 import objects.entities.Player;
-import objects.tiles.Block;
-import objects.tiles.Static;
-import objects.tiles.Tile;
+import objects.tiles.*;
 import utilities.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
 
 public class Game {
     Panel panel;
@@ -21,18 +17,22 @@ public class Game {
     Random random;
     public HashMap<String, Image> images;
     public LinkedList<LinkedList<Tile>> maps;
+    public LinkedList<LinkedList<Integer>> playerPos;
     public LinkedList<LinkedList<Integer>> mapSizes;
     Player player;
     public int tileSize;
     public int currentMap;
     boolean click, press;
     int pressX, pressY;
+    public boolean pause;
+    public LinkedList<LinkedList<Tile>> pauseAble;
+    public HUD hud;
 
     Game(Panel panel) {
         this.panel = panel;
         visible = false;
 
-        tileSize = 70;
+        tileSize = 75;
         save = new Save();
         random = new Random();
 
@@ -49,7 +49,9 @@ public class Game {
 
         int mapsAmount = 3;
         maps = new LinkedList<>();
+        playerPos = new LinkedList<>();
         mapSizes = new LinkedList<>();
+        pauseAble = new LinkedList<>();
         currentMap = 0;
         for (int i = 0; i < mapsAmount; i++) {
             char[][] map = save.read("src/assets/game/floors/floor " + i + ".txt");
@@ -58,15 +60,32 @@ public class Game {
             mapSizes.add(new LinkedList<>());
             mapSizes.getLast().add(map[0].length);
             mapSizes.getLast().add(map.length);
+            playerPos.add(new LinkedList<>());
+            pauseAble.add(new LinkedList<>());
 
             for (int j = 0; j < map.length; j++) for (int k = 0; k < map[j].length; k++)
                 switch (map[j][k]) {
-                    case '.' -> maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
+                    case '.', ',' -> {
+                        maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
+                        if (map[j][k] == ',') {
+                            playerPos.getLast().add(j);
+                            playerPos.getLast().add(k);
+                        }
+                    }
                     case '0' -> maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.WALL));
-                    case '1' -> maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.EXIT));
+                    case '1' -> {
+                        maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.EXIT));
+                        pauseAble.getLast().add(maps.getLast().getLast());
+                    }
                     case '2' -> maps.getLast().add(new Block(panel, this, k * tileSize, j * tileSize));
+                    case '3' -> {
+                        maps.getLast().add(new Spike(panel, this, k * tileSize, j * tileSize));
+                        pauseAble.getLast().add(maps.getLast().getLast());
+                    }
         }}
+        System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
 
+        hud = new HUD();
         player = new Player(panel, this);
 
         panel.addMouseListener(new MouseListener() {
@@ -113,6 +132,8 @@ public class Game {
         for (Tile tile : maps.get(currentMap)) tile.draw(gg, panel.camX, panel.camY);
 
         player.draw(gg, panel.camX, panel.camY);
+
+        hud.draw(gg);
     }
 
     public void start() {
@@ -122,7 +143,25 @@ public class Game {
             throw new RuntimeException(e);
         }
         visible = true;
-        panel.camX = panel.width/2 - tileSize/2 - 13 / 2 * tileSize;
-        panel.camY = panel.height/2 - tileSize/2 - 13 / 2 * tileSize;
+        panel.camX = panel.width/2 - tileSize/2 - mapSizes.get(currentMap).getLast() / 2 * tileSize;
+        panel.camY = panel.height/2 - tileSize/2 - mapSizes.get(currentMap).getLast() / 2 * tileSize;
+        player.x = playerPos.get(currentMap).getLast() * tileSize;
+        player.y = playerPos.get(currentMap).getFirst() * tileSize;
+
+        pause = false;
+    }
+
+    public void nextLevel(int next) {
+        currentMap = next;
+        start();
+    }
+
+    public void over() {
+        panel.mainMenu.visible = true;
+        visible = false;
+        currentMap = 0;
+        panel.camX = 0;
+        panel.camY = 0;
+        hud.hearts = 3;
     }
 }

@@ -5,12 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added to tile movement">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/spike.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/HUD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/objects/tiles/Spike.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/floor 0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/floor 1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/floor 2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/tiles/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/tiles/Static.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Static.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilities/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/TileType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,15 +65,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/juliu/OneDrive - Asia Pacific College/Documents/School/1st Year/Term 3/DATSTRC/untitled/src/assets/game/tiles"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\player" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src" />
     </key>

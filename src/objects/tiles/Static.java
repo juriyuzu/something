@@ -2,7 +2,6 @@ package objects.tiles;
 
 import main.Game;
 import main.Panel;
-import utilities.TileType;
 
 public class Static extends Tile {
 
@@ -17,7 +16,10 @@ public class Static extends Tile {
         switch (type) {
             case WALL -> image = game.images.get("WALL");
             case FLOOR -> image = game.images.get("FLOOR");
-            case EXIT -> image = game.images.get("EXIT");
+            case EXIT -> {
+                image = game.images.get("EXIT");
+                pauseAble = true;
+            }
         }
 
     }
