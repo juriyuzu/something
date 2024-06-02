@@ -88,7 +88,7 @@ public class Game {
         }}
         System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
 
-        hud = new HUD();
+        hud = new HUD(panel.width, panel.height);
         player = new Player(panel, this);
         snail = new Snail(this, player);
 

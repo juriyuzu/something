@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added floor travel&#10;added hud&#10;added hearts&#10;added spike&#10;added restart level">
-      <change afterPath="$PROJECT_DIR$/src/assets/game/enemy/snail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/entities/Follow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/entities/Snail.java" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added snail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/HUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/HUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Object.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717230283975</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added snail">
+      <option name="closed" value="true" />
+      <created>1717254807941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717254807941</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +160,7 @@
     <MESSAGE value="not yet" />
     <MESSAGE value="added to tile movement" />
     <MESSAGE value="added floor travel&#10;added hud&#10;added hearts&#10;added spike&#10;added restart level" />
-    <option name="LAST_COMMIT_MESSAGE" value="added floor travel&#10;added hud&#10;added hearts&#10;added spike&#10;added restart level" />
+    <MESSAGE value="added snail" />
+    <option name="LAST_COMMIT_MESSAGE" value="added snail" />
   </component>
 </project>
