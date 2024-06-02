@@ -19,7 +19,7 @@ public class Snail extends Object {
         h = player.w;
         this.game = game;
         this.player = player;
-        speed = 1;
+        speed = 2;
 
         visible = false;
         image = new ImageIcon("src/assets/game/enemy/snail.png").getImage();

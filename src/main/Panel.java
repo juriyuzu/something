@@ -14,6 +14,7 @@ public class Panel extends JPanel implements Runnable {
     public int camY;
     MainMenu mainMenu;
     Game game;
+    GameOver gameOver;
 
     Panel(Main main, int width, int height) {
         this.width = width;
@@ -26,6 +27,7 @@ public class Panel extends JPanel implements Runnable {
 
         mainMenu = new MainMenu(this);
         game = new Game(this);
+        gameOver = new GameOver(this);
 
         addMouseMotionListener(new MouseMotionListener() {
             @Override
@@ -69,6 +71,7 @@ public class Panel extends JPanel implements Runnable {
 
         mainMenu.draw(gg);
         game.draw(gg);
+        gameOver.draw(gg);
         clickEffect(gg);
 
         // debug

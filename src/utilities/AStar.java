@@ -6,7 +6,7 @@ import utilities.Node;
 import java.util.*;
 
 public class AStar {
-    static int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    static int[][] directions = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 
     static int heuristic(int x, int y, int targetX, int targetY) {
         return Math.abs(x - targetX) + Math.abs(y - targetY);
@@ -44,13 +44,13 @@ public class AStar {
             closedSet.add(current);
 
 
-            Random rnd = new Random();
-            for (int i = directions.length - 1; i > 0; i--) {
-                int index = rnd.nextInt(i + 1);
-                int[] temp = directions[index];
-                directions[index] = directions[i];
-                directions[i] = temp;
-            }
+//            Random rnd = new Random();
+//            for (int i = directions.length - 1; i > 0; i--) {
+//                int index = rnd.nextInt(i + 1);
+//                int[] temp = directions[index];
+//                directions[index] = directions[i];
+//                directions[i] = temp;
+//            }
             for (int[] dir : directions) {
                 int newX = current.x + dir[0];
                 int newY = current.y + dir[1];

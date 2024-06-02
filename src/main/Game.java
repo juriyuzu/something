@@ -167,11 +167,11 @@ public class Game {
     }
 
     public void over() {
-        panel.mainMenu.visible = true;
         visible = false;
         currentMap = 0;
         panel.camX = 0;
         panel.camY = 0;
         hud.hearts = 3;
+        panel.gameOver.visible = true;
     }
 }
