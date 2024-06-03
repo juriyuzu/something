@@ -7,6 +7,7 @@ import objects.tiles.Tile;
 import utilities.AStar;
 import utilities.Node;
 import utilities.Object;
+import utilities.Sound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -123,7 +124,7 @@ public class Player extends Object {
         }
 
         gotoxy(x + xVel, y + yVel);
-        if (Math.abs(path.get(pathIndex).x * tileSize - x) <= 5 && Math.abs(path.get(pathIndex).y * tileSize - y) <= 5) {
+        if (Math.abs(path.get(pathIndex).x * tileSize - x) == 0 && Math.abs(path.get(pathIndex).y * tileSize - y) == 0) {
             gotoxy(path.get(pathIndex).x * tileSize, path.get(pathIndex).y * tileSize);
 
             Tile tileCheck = null;
@@ -180,6 +181,7 @@ public class Player extends Object {
         }
         panel.clickEffect = 10;
         panel.clicks++;
+        Sound.play("src/assets/sounds/blip.wav");
         game.clicks++;
 
         System.out.print("screen clicked");

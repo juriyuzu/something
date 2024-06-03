@@ -26,7 +26,7 @@ public class Snail extends Object {
     }
 
     public void draw(Graphics2D gg, int camX, int camY) {
-        if (game.clicks > 5) visible = true;
+//        if (game.clicks > 5) visible = true;
 
         if (!visible) return;
 

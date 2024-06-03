@@ -1,5 +1,7 @@
 package main;
 
+import utilities.Sound;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -15,6 +17,7 @@ public class Panel extends JPanel implements Runnable {
     MainMenu mainMenu;
     Game game;
     GameOver gameOver;
+    Sound sound;
 
     Panel(Main main, int width, int height) {
         this.width = width;
@@ -26,8 +29,9 @@ public class Panel extends JPanel implements Runnable {
         thread.start();
 
         mainMenu = new MainMenu(this);
-        game = new Game(this);
+        game = new Game(this, main);
         gameOver = new GameOver(this);
+        sound = new Sound();
 
         addMouseMotionListener(new MouseMotionListener() {
             @Override

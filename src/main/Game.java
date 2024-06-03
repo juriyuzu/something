@@ -2,11 +2,14 @@ package main;
 
 import objects.entities.Player;
 import objects.entities.Snail;
+import objects.entities.Wandering;
 import objects.tiles.*;
 import utilities.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
@@ -19,6 +22,7 @@ public class Game {
     public HashMap<String, Image> images;
     public LinkedList<LinkedList<Tile>> maps;
     public LinkedList<LinkedList<Integer>> playerPos;
+    public LinkedList<LinkedList<Wandering>> wandering;
     public LinkedList<LinkedList<Integer>> mapSizes;
     Player player;
     public Snail snail;
@@ -30,14 +34,16 @@ public class Game {
     public LinkedList<LinkedList<Tile>> pauseAble;
     public HUD hud;
     public int clicks;
+    Key key;
 
-    Game(Panel panel) {
+    Game(Panel panel, Main main) {
         this.panel = panel;
         visible = false;
 
         tileSize = 75;
         save = new Save();
         random = new Random();
+        key = new Key(main);
 
         images = new HashMap<>();
         {
@@ -50,9 +56,10 @@ public class Game {
             images.put("EXIT", new ImageIcon(imagePath + "exit.png").getImage());
         }
 
-        int mapsAmount = 3;
+        int mapsAmount = 5;
         maps = new LinkedList<>();
         playerPos = new LinkedList<>();
+        wandering = new LinkedList<>();
         mapSizes = new LinkedList<>();
         pauseAble = new LinkedList<>();
         currentMap = 0;
@@ -64,15 +71,21 @@ public class Game {
             mapSizes.getLast().add(map[0].length);
             mapSizes.getLast().add(map.length);
             playerPos.add(new LinkedList<>());
+            wandering.add(new LinkedList<>());
             pauseAble.add(new LinkedList<>());
 
             for (int j = 0; j < map.length; j++) for (int k = 0; k < map[j].length; k++)
                 switch (map[j][k]) {
-                    case '.', ',' -> {
+                    case '.', ',', 'A' -> {
                         maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
-                        if (map[j][k] == ',') {
-                            playerPos.getLast().add(j);
-                            playerPos.getLast().add(k);
+                        switch (map[j][k]) {
+                            case ',' -> {
+                                playerPos.getLast().add(j);
+                                playerPos.getLast().add(k);
+                            }
+                            case 'A' -> {
+                                wandering.getLast().add(new Wandering(this, new int[]{k, j}));
+                            }
                         }
                     }
                     case '0' -> maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.WALL));
@@ -84,8 +97,7 @@ public class Game {
                     case '3' -> {
                         maps.getLast().add(new Spike(panel, this, k * tileSize, j * tileSize));
                         pauseAble.getLast().add(maps.getLast().getLast());
-                    }
-        }}
+        }}}
         System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
 
         hud = new HUD(panel.width, panel.height);
@@ -125,6 +137,11 @@ public class Game {
     public void draw(Graphics2D gg) {
         if (!visible) return;
 
+        if (key.space && !key.spaceL) {
+            nextLevel(currentMap + 1);
+            key.spaceL = true;
+        } else key.spaceL = false;
+
         // Title
         {
             gg.setFont(new Font("Consolas", Font.BOLD, 50));
@@ -137,6 +154,7 @@ public class Game {
 
         snail.draw(gg, panel.camX, panel.camY);
         player.draw(gg, panel.camX, panel.camY);
+        for (Wandering w : wandering.get(currentMap)) w.draw(gg, panel.camX, panel.camY);
 
         hud.draw(gg);
 
@@ -163,6 +181,7 @@ public class Game {
 
     public void nextLevel(int next) {
         currentMap = next;
+        for (Wandering w : wandering.get(currentMap)) w.setPlayer(player);
         start();
     }
 
