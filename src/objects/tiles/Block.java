@@ -4,11 +4,13 @@ import main.Game;
 import main.Panel;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 public class Block extends Tile {
     boolean on;
     Image imageOn, imageOff;
-    public int group;
+    public LinkedList<Integer> group;
+    public boolean lock;
 
     public Block(Panel panel, Game game, int x, int y) {
         super(panel, game, x, y);
@@ -17,13 +19,14 @@ public class Block extends Tile {
         on = true;
         solid = true;
         destinationAble = false;
-        group = -1;
+        group = new LinkedList<>();
+        lock = false;
 
         imageOn = game.images.get("BLOCK WALL");
         imageOff = game.images.get("BLOCK FLOOR");
     }
 
-    public void setGroup(int n) {group = n;}
+    public void addGroup(int n) {group.add(n);}
 
     public void draw(Graphics2D gg, int camX, int camY) {
         gg.drawImage(on ? imageOn : imageOff, x + camX, y + camY, w, h, null);

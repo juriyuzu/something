@@ -3,19 +3,28 @@ package objects.tiles;
 import java.util.LinkedList;
 
 public class GroupBlock {
-    LinkedList<LinkedList<Tile>> blocks;
+    LinkedList<LinkedList<Block>> blocks;
 
     public GroupBlock() {
         blocks = new LinkedList<>();
     }
 
-    public void add(int n, Tile tile) {
+    public void add(int n, Block block) {
         while (n >= blocks.size()) blocks.add(new LinkedList<>());
 
-        blocks.get(n).add(tile);
+        blocks.get(n).add(block);
     }
 
     public void toggle(int n) {
-        for (Tile tile : blocks.get(n)) tile.clickFun();
+        for (Block block : blocks.get(n)) {
+            if (!block.lock) {
+                block.clickFun();
+                block.lock = true;
+            }
+        }
+    }
+
+    public void unlock(int n) {
+        for (Block block : blocks.get(n)) block.lock = false;
     }
 }

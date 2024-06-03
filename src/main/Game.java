@@ -55,7 +55,7 @@ public class Game {
             images.put("EXIT", new ImageIcon(imagePath + "exit.png").getImage());
         }
 
-        int mapsAmount = 5;
+        int mapsAmount = 6;
         maps = new LinkedList<>();
         playerPos = new LinkedList<>();
         wanderings = new LinkedList<>();
@@ -65,7 +65,8 @@ public class Game {
         currentMap = 0;
         for (int i = 0; i < mapsAmount; i++) {
             char[][] map = save.read("src/assets/game/floors/maps/floor " + i + ".txt");
-            char[][] groupBlocksMap = save.read("src/assets/game/floors/groupBlocks/floor " + i + ".txt");
+            LinkedList<char[][]> groupBlocksMaps = new LinkedList<>();
+            for (int j = 0; j < 3; j++) groupBlocksMaps.add(save.read("src/assets/game/floors/groupBlocks/floor " + i + "." + j + ".txt"));
             maps.add(new LinkedList<>());
 
             mapSizes.add(new LinkedList<>());
@@ -98,9 +99,13 @@ public class Game {
                     case '2' -> {
                         Block block = new Block(panel, this, k * tileSize, j * tileSize);
                         maps.getLast().add(block);
-                        if (groupBlocksMap != null && groupBlocksMap[j][k] != '.') {
-                            block.setGroup(groupBlocksMap[j][k]);
-                            groupBlocks.getLast().add(groupBlocksMap[j][k], block);
+                        if (!groupBlocksMaps.isEmpty()) {
+                            for (char[][] m : groupBlocksMaps) {
+                                if (m != null && m[j][k] != '.') {
+                                    block.addGroup(m[j][k]);
+                                    groupBlocks.getLast().add(m[j][k], block);
+                                }
+                            }
                         }
                     }
                     case '3' -> {

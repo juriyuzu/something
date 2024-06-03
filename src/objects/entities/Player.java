@@ -194,9 +194,10 @@ public class Player extends Object {
                 tile.clickFun();
                 if (tile.type == TileType.BLOCK) {
                     Block block = (Block) tile;
-                    if (block.group != -1) {
+                    if (!block.group.isEmpty()) {
                         block.clickFun();
-                        game.groupBlocks.get(game.currentMap).toggle(block.group);
+                        for (int n : block.group) game.groupBlocks.get(game.currentMap).toggle(n);
+                        for (int n : block.group) game.groupBlocks.get(game.currentMap).unlock(n);
                     }
                 }
             }
