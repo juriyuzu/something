@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added game over screen">
-      <change afterPath="$PROJECT_DIR$/src/assets/game/enemy/wandering.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/game/floors/floor 3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/game/floors/floor 4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sounds/blip.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/entities/Wandering.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/Key.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/Sound.java" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added sound&#10;added sum poop">
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/groupBlockFloor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/objects/tiles/GroupBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/entities/Snail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Snail.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,15 +36,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/game/floors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/game/tiles" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\enemy" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\enemy" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
-      <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\sounds" />
@@ -145,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717294635945</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added sound&#10;added sum poop">
+      <created>1717398828767</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717398828767</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +165,7 @@
     <MESSAGE value="added snail" />
     <MESSAGE value="added snappy&#10;added fps" />
     <MESSAGE value="added game over screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="added game over screen" />
+    <MESSAGE value="added sound&#10;added sum poop" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sound&#10;added sum poop" />
   </component>
 </project>
