@@ -57,6 +57,10 @@ public class Save {
     public char[][] read(String filePath) {
         try {
             Path path = Paths.get(filePath);
+            if (!Files.exists(path)) {
+                System.out.println("File path does not exist.");
+                return null;
+            }
             List<String> lines = Files.readAllLines(path);
             char[][] result = new char[lines.size()][];
             for (int i = 0; i < lines.size(); i++) {

@@ -3,7 +3,9 @@ package objects.entities;
 import main.Game;
 import main.HUD;
 import main.Panel;
+import objects.tiles.Block;
 import objects.tiles.Tile;
+import objects.tiles.TileType;
 import utilities.AStar;
 import utilities.Node;
 import utilities.Object;
@@ -188,7 +190,16 @@ public class Player extends Object {
         for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(panel.curX - panel.camX, panel.curY - panel.camY)) {
             System.out.print("clicked tile at " + tile.getX() + ", " + tile.getY());
             if (move) stopMove = true;
-            if (!move && !AStar.rectRect(tile.getX(), tile.getY(), tile.size/2, tile.size/2, x, y, tile.size/2, tile.size/2)) tile.clickFun();
+            if (!move && !AStar.rectRect(tile.getX(), tile.getY(), tile.size/2, tile.size/2, x, y, tile.size/2, tile.size/2)) {
+                tile.clickFun();
+                if (tile.type == TileType.BLOCK) {
+                    Block block = (Block) tile;
+                    if (block.group != -1) {
+                        block.clickFun();
+                        game.groupBlocks.get(game.currentMap).toggle(block.group);
+                    }
+                }
+            }
             if (!move) {
                 destination = tile;
                 if (path == null) findPath();

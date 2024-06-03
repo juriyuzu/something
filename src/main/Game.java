@@ -8,8 +8,6 @@ import utilities.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
@@ -22,7 +20,8 @@ public class Game {
     public HashMap<String, Image> images;
     public LinkedList<LinkedList<Tile>> maps;
     public LinkedList<LinkedList<Integer>> playerPos;
-    public LinkedList<LinkedList<Wandering>> wandering;
+    public LinkedList<LinkedList<Wandering>> wanderings;
+    public LinkedList<GroupBlock> groupBlocks;
     public LinkedList<LinkedList<Integer>> mapSizes;
     Player player;
     public Snail snail;
@@ -59,19 +58,22 @@ public class Game {
         int mapsAmount = 5;
         maps = new LinkedList<>();
         playerPos = new LinkedList<>();
-        wandering = new LinkedList<>();
+        wanderings = new LinkedList<>();
+        groupBlocks = new LinkedList<>();
         mapSizes = new LinkedList<>();
         pauseAble = new LinkedList<>();
         currentMap = 0;
         for (int i = 0; i < mapsAmount; i++) {
-            char[][] map = save.read("src/assets/game/floors/floor " + i + ".txt");
+            char[][] map = save.read("src/assets/game/floors/maps/floor " + i + ".txt");
+            char[][] groupBlocksMap = save.read("src/assets/game/floors/groupBlocks/floor " + i + ".txt");
             maps.add(new LinkedList<>());
 
             mapSizes.add(new LinkedList<>());
             mapSizes.getLast().add(map[0].length);
             mapSizes.getLast().add(map.length);
             playerPos.add(new LinkedList<>());
-            wandering.add(new LinkedList<>());
+            wanderings.add(new LinkedList<>());
+            groupBlocks.add(new GroupBlock());
             pauseAble.add(new LinkedList<>());
 
             for (int j = 0; j < map.length; j++) for (int k = 0; k < map[j].length; k++)
@@ -84,7 +86,7 @@ public class Game {
                                 playerPos.getLast().add(k);
                             }
                             case 'A' -> {
-                                wandering.getLast().add(new Wandering(this, new int[]{k, j}));
+                                wanderings.getLast().add(new Wandering(this, new int[]{k, j}));
                             }
                         }
                     }
@@ -93,7 +95,14 @@ public class Game {
                         maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.EXIT));
                         pauseAble.getLast().add(maps.getLast().getLast());
                     }
-                    case '2' -> maps.getLast().add(new Block(panel, this, k * tileSize, j * tileSize));
+                    case '2' -> {
+                        Block block = new Block(panel, this, k * tileSize, j * tileSize);
+                        maps.getLast().add(block);
+                        if (groupBlocksMap != null && groupBlocksMap[j][k] != '.') {
+                            block.setGroup(groupBlocksMap[j][k]);
+                            groupBlocks.getLast().add(groupBlocksMap[j][k], block);
+                        }
+                    }
                     case '3' -> {
                         maps.getLast().add(new Spike(panel, this, k * tileSize, j * tileSize));
                         pauseAble.getLast().add(maps.getLast().getLast());
@@ -154,7 +163,7 @@ public class Game {
 
         snail.draw(gg, panel.camX, panel.camY);
         player.draw(gg, panel.camX, panel.camY);
-        for (Wandering w : wandering.get(currentMap)) w.draw(gg, panel.camX, panel.camY);
+        for (Wandering w : wanderings.get(currentMap)) w.draw(gg, panel.camX, panel.camY);
 
         hud.draw(gg);
 
@@ -181,7 +190,7 @@ public class Game {
 
     public void nextLevel(int next) {
         currentMap = next;
-        for (Wandering w : wandering.get(currentMap)) w.setPlayer(player);
+        for (Wandering w : wanderings.get(currentMap)) w.setPlayer(player);
         start();
     }
 

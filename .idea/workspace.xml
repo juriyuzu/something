@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added sound&#10;added sum poop">
-      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/groupBlockFloor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/tiles/GroupBlock.java" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added unfinished group block">
+      <change afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/groupBlocks/floor 2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/floor 4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/GroupBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/GroupBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Save.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,18 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/game/tiles" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/juliu/OneDrive - Asia Pacific College/Documents/School/1st Year/Term 3/DATSTRC/untitled/src/assets/game/floors/groupBlocks"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
+      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\enemy" />
-      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\enemy" />
-      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\maps" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\sounds" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\utilities" />
     </key>
@@ -143,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717398828767</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added unfinished group block">
+      <created>1717400344120</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717400344120</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,6 +187,7 @@
     <MESSAGE value="added snappy&#10;added fps" />
     <MESSAGE value="added game over screen" />
     <MESSAGE value="added sound&#10;added sum poop" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sound&#10;added sum poop" />
+    <MESSAGE value="added unfinished group block" />
+    <option name="LAST_COMMIT_MESSAGE" value="added unfinished group block" />
   </component>
 </project>
