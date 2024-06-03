@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added finished group block">
-      <change afterPath="$PROJECT_DIR$/src/assets/game/floors/groupBlocks/floor 4.0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/game/floors/groupBlocks/floor 4.1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 5.txt" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added multiple group blocks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/groupBlocks/floor 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/groupBlocks/floor 2.0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/tiles/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/tiles/GroupBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/GroupBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717422653923</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added multiple group blocks">
+      <option name="closed" value="true" />
+      <created>1717425566018</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717425566018</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +221,7 @@
     <MESSAGE value="added sound&#10;added sum poop" />
     <MESSAGE value="added unfinished group block" />
     <MESSAGE value="added finished group block" />
-    <option name="LAST_COMMIT_MESSAGE" value="added finished group block" />
+    <MESSAGE value="added multiple group blocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="added multiple group blocks" />
   </component>
 </project>

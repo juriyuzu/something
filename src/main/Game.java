@@ -23,7 +23,7 @@ public class Game {
     public LinkedList<LinkedList<Wandering>> wanderings;
     public LinkedList<GroupBlock> groupBlocks;
     public LinkedList<LinkedList<Integer>> mapSizes;
-    Player player;
+    public Player player;
     public Snail snail;
     public int tileSize;
     public int currentMap;

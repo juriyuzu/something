@@ -190,7 +190,7 @@ public class Player extends Object {
         for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(panel.curX - panel.camX, panel.curY - panel.camY)) {
             System.out.print("clicked tile at " + tile.getX() + ", " + tile.getY());
             if (move) stopMove = true;
-            if (!move && !AStar.rectRect(tile.getX(), tile.getY(), tile.size/2, tile.size/2, x, y, tile.size/2, tile.size/2)) {
+            if (!move) {
                 tile.clickFun();
                 if (tile.type == TileType.BLOCK) {
                     Block block = (Block) tile;
@@ -212,7 +212,7 @@ public class Player extends Object {
         click = false;
     }
 
-    private void dead() {
+    public void dead() {
         destination = null;
         game.pause = true;
         move = false;

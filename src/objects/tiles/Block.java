@@ -2,6 +2,7 @@ package objects.tiles;
 
 import main.Game;
 import main.Panel;
+import utilities.AStar;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -11,6 +12,7 @@ public class Block extends Tile {
     Image imageOn, imageOff;
     public LinkedList<Integer> group;
     public boolean lock;
+    Game game;
 
     public Block(Panel panel, Game game, int x, int y) {
         super(panel, game, x, y);
@@ -21,6 +23,7 @@ public class Block extends Tile {
         destinationAble = false;
         group = new LinkedList<>();
         lock = false;
+        this.game = game;
 
         imageOn = game.images.get("BLOCK WALL");
         imageOff = game.images.get("BLOCK FLOOR");
@@ -35,5 +38,8 @@ public class Block extends Tile {
     public void clickFun() {
         on = !on;
         solid = on;
+
+        if (on && AStar.rectRect(game.player.x, game.player.y, game.player.w/2, game.player.h/2, x, y, w/2, h/2))
+            game.player.dead();
     }
 }
