@@ -31,8 +31,6 @@ public class Main extends JFrame {
             @Override
             public void componentHidden(ComponentEvent e) {}
         });
-
-        setVisible(true);
     }
 
     public static void main(String[] args) {
