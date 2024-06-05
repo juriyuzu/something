@@ -1,0 +1,276 @@
+Index: src/main/Splash.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class Splash extends JFrame {\r\n    SplashPanel panel;\r\n\r\n    Splash() {\r\n        setLayout(null);\r\n        setSize(800, 500);\r\n        setResizable(false);\r\n        setUndecorated(true);\r\n        setLocationRelativeTo(null);\r\n        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);\r\n\r\n        panel = new SplashPanel(this, getWidth(), getHeight());\r\n\r\n        setVisible(true);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello Nigga.\");\r\n        new Splash();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/Splash.java b/src/main/Splash.java
+--- a/src/main/Splash.java	(revision 705e6a32d992d1e14b8fef8cbc4d4ab3cc64a801)
++++ b/src/main/Splash.java	(date 1717554282916)
+@@ -7,7 +7,7 @@
+ 
+     Splash() {
+         setLayout(null);
+-        setSize(800, 500);
++        setSize(1000, 710);
+         setResizable(false);
+         setUndecorated(true);
+         setLocationRelativeTo(null);
+Index: src/main/SplashPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main;\r\n\r\nimport utilities.Key;\r\nimport utilities.Object;\r\nimport utilities.Sound;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.MouseEvent;\r\nimport java.awt.event.MouseListener;\r\nimport java.awt.event.MouseMotionListener;\r\n\r\npublic class SplashPanel extends JPanel implements Runnable {\r\n    int width, height;\r\n    Thread thread;\r\n    public int curX;\r\n    public int curY;\r\n    Object object;\r\n    Key key;\r\n    JFrame frame;\r\n    Main main;\r\n    boolean click;\r\n\r\n    SplashPanel(JFrame frame, int width, int height) {\r\n        this.frame = frame;\r\n        this.width = width;\r\n        this.height = height;\r\n        setBounds(0, 0, width, height);\r\n        frame.add(this);\r\n\r\n        thread = new Thread(this);\r\n        thread.start();\r\n\r\n        object = new Object(new ImageIcon(\"src/assets/mainMenu/my beloved.png\").getImage(), 0, 0, width, height);\r\n        key = new Key(frame);\r\n\r\n        main = new Main();\r\n\r\n        addMouseMotionListener(new MouseMotionListener() {\r\n            @Override\r\n            public void mouseDragged(MouseEvent e) {\r\n                curX = e.getX();\r\n                curY = e.getY();\r\n            }\r\n\r\n            @Override\r\n            public void mouseMoved(MouseEvent e) {\r\n                curX = e.getX();\r\n                curY = e.getY();\r\n            }\r\n        });\r\n\r\n        addMouseListener(new MouseListener() {\r\n            @Override\r\n            public void mouseClicked(MouseEvent e) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void mousePressed(MouseEvent e) {\r\n                click = true;\r\n            }\r\n\r\n            @Override\r\n            public void mouseReleased(MouseEvent e) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void mouseEntered(MouseEvent e) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void mouseExited(MouseEvent e) {\r\n\r\n            }\r\n        });\r\n    }\r\n\r\n    public void run() {\r\n        double drawInterval = (double) 1000000000 / 60;\r\n        double nextDrawTime = System.nanoTime() + drawInterval;\r\n        while (thread != null) {\r\n            repaint();\r\n\r\n            try {\r\n                double remainingTime = (nextDrawTime - System.nanoTime()) / 1000000;\r\n                if (remainingTime < 0) remainingTime = 0;\r\n                Thread.sleep((long) remainingTime);\r\n                nextDrawTime += drawInterval;\r\n            } catch (InterruptedException e) {\r\n                throw new RuntimeException(e);\r\n            }\r\n        }\r\n    }\r\n\r\n    public void paintComponent(Graphics g) {\r\n        super.paintComponent(g);\r\n        Graphics2D gg = (Graphics2D) g;\r\n\r\n        // backdrop\r\n        gg.setColor(new Color(0xA1A1A1));\r\n        gg.fillRect(0, 0, width, height);\r\n\r\n        // debug\r\n        {\r\n            gg.setFont(new Font(\"Consolas\", Font.BOLD, 100));\r\n            gg.setColor(new Color(0x000000));\r\n            gg.drawString(\"SPLASH SCREEN\", 0, 100);\r\n        }\r\n\r\n        object.draw(gg, 0, 0);\r\n\r\n        if (key.space || click) {\r\n            frame.dispose();\r\n            main.setVisible(true);\r\n        }\r\n\r\n        gg.dispose();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/SplashPanel.java b/src/main/SplashPanel.java
+--- a/src/main/SplashPanel.java	(revision 705e6a32d992d1e14b8fef8cbc4d4ab3cc64a801)
++++ b/src/main/SplashPanel.java	(date 1717553771041)
+@@ -31,7 +31,7 @@
+         thread = new Thread(this);
+         thread.start();
+ 
+-        object = new Object(new ImageIcon("src/assets/mainMenu/my beloved.png").getImage(), 0, 0, width, height);
++        object = new Object(new ImageIcon("src/assets/mainMenu/SPLASH.png").getImage(), 0, 0, width, height);
+         key = new Key(frame);
+ 
+         main = new Main();
+Index: src/main/MainMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main;\r\n\r\nimport utilities.Object;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.border.LineBorder;\r\nimport java.awt.*;\r\nimport java.awt.event.MouseEvent;\r\nimport java.awt.event.MouseListener;\r\nimport java.util.HashMap;\r\n\r\npublic class MainMenu {\r\n    Panel panel;\r\n    boolean visible;\r\n    HashMap<String, Object> objects;\r\n    HashMap<String, Image> imageStock;\r\n    boolean click, press;\r\n    int pressX, pressY;\r\n\r\n    MainMenu(Panel panel) {\r\n        this.panel = panel;\r\n        visible = true;\r\n\r\n        imageStock = new HashMap<>();\r\n        String imagePath = \"src/assets/mainMenu/\";\r\n        imageStock.put(\"1\", new ImageIcon(imagePath + \"my beloved.png\").getImage());\r\n        imageStock.put(\"2\", new ImageIcon(imagePath + \"my beloved2.png\").getImage());\r\n\r\n        objects = new HashMap<>();\r\n        objects.put(\"START BUTTON\", new Object(imageStock.get(\"1\"), panel.width/2, panel.height/2 + 250, 100, 100));\r\n\r\n        panel.addMouseListener(new MouseListener() {\r\n            @Override\r\n            public void mouseClicked(MouseEvent e) {\r\n                if (visible) click = true;\r\n            }\r\n\r\n            @Override\r\n            public void mousePressed(MouseEvent e) {\r\n                if (visible) {\r\n                    press = true;\r\n                    pressX = e.getX();\r\n                    pressY = e.getY();\r\n                }\r\n            }\r\n\r\n            @Override\r\n            public void mouseReleased(MouseEvent e) {\r\n                if (visible) press = false;\r\n            }\r\n\r\n            @Override\r\n            public void mouseEntered(MouseEvent e) {\r\n            }\r\n\r\n            @Override\r\n            public void mouseExited(MouseEvent e) {\r\n            }\r\n        });\r\n    }\r\n\r\n    public void draw(Graphics2D gg) {\r\n        if (!visible) return;\r\n\r\n        // Title\r\n        {\r\n            gg.setFont(new Font(\"Consolas\", Font.BOLD, 50));\r\n            gg.setColor(new Color(0x000000));\r\n            gg.drawString(\"main.Main Menu\", 0, 50);\r\n        }\r\n\r\n        for (HashMap.Entry<String, Object> entry : objects.entrySet()) entry.getValue().draw(gg, panel.camX, panel.camY);\r\n\r\n        pressFun();\r\n        clickFun();\r\n    }\r\n\r\n    // pressFun detects presses in the screen\r\n    private void pressFun() {\r\n        if (press && objects.get(\"START BUTTON\").hovering(panel.curX, panel.curY) && objects.get(\"START BUTTON\").hovering(pressX, pressY)) {\r\n            // this runs only if the initially pressed location is hovering the start button\r\n            // and if the cursor is hovering the start button\r\n\r\n            Object o = objects.get(\"START BUTTON\");\r\n            o.image = imageStock.get(\"2\"); // change the button image\r\n        } else {\r\n            // reset pressX and pressY so the code above will not run when the cursor is dragged out the button and back again\r\n            pressX = -1;\r\n            pressY = -1;\r\n\r\n            Object o = objects.get(\"START BUTTON\");\r\n            o.image = imageStock.get(\"1\"); // change the button image\r\n        }\r\n    }\r\n\r\n    // clickFun runs when the screen is clicked\r\n    private void clickFun() {\r\n        if (!click) return;\r\n\r\n        System.out.print(\"screen clicked\");\r\n        if (objects.get(\"START BUTTON\").hovering(panel.curX, panel.curY)) {\r\n            System.out.print(\"butt clicked\");\r\n\r\n            // close the mainMenu\r\n            visible = false;\r\n            // start the game\r\n            panel.game.start();\r\n        }\r\n        System.out.println();\r\n\r\n        click = false;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/MainMenu.java b/src/main/MainMenu.java
+--- a/src/main/MainMenu.java	(revision 705e6a32d992d1e14b8fef8cbc4d4ab3cc64a801)
++++ b/src/main/MainMenu.java	(date 1717553268884)
+@@ -2,11 +2,15 @@
+ 
+ import utilities.Object;
+ 
++import javax.imageio.ImageIO;
+ import javax.swing.*;
+ import javax.swing.border.LineBorder;
+ import java.awt.*;
+ import java.awt.event.MouseEvent;
+ import java.awt.event.MouseListener;
++import java.awt.image.BufferedImage;
++import java.io.File;
++import java.io.IOException;
+ import java.util.HashMap;
+ 
+ public class MainMenu {
+@@ -17,6 +21,8 @@
+     boolean click, press;
+     int pressX, pressY;
+ 
++    boolean initialHover = false;
++
+     MainMenu(Panel panel) {
+         this.panel = panel;
+         visible = true;
+@@ -25,9 +31,28 @@
+         String imagePath = "src/assets/mainMenu/";
+         imageStock.put("1", new ImageIcon(imagePath + "my beloved.png").getImage());
+         imageStock.put("2", new ImageIcon(imagePath + "my beloved2.png").getImage());
++        imageStock.put("3", new ImageIcon(imagePath + "Title.png").getImage());
++        imageStock.put("4", new ImageIcon(imagePath + "MainMenuBG.png").getImage());
++
++        imageStock.put("5", new ImageIcon(imagePath + "StartOff.png").getImage());
++        imageStock.put("6", new ImageIcon(imagePath + "StartOn.png").getImage());
++        imageStock.put("7", new ImageIcon(imagePath + "SettingsOff.png").getImage());
++        imageStock.put("8", new ImageIcon(imagePath + "SettingsOn.png").getImage());
++        imageStock.put("9", new ImageIcon(imagePath + "AboutOff.png").getImage());
++        imageStock.put("10", new ImageIcon(imagePath + "AboutOn.png").getImage());
++        imageStock.put("t", new ImageIcon(imagePath + "ExitOff.png").getImage());
++        imageStock.put("h", new ImageIcon(imagePath + "ExitOn.png").getImage());
+ 
+         objects = new HashMap<>();
+-        objects.put("START BUTTON", new Object(imageStock.get("1"), panel.width/2, panel.height/2 + 250, 100, 100));
++        objects.put("START 2", new Object(imageStock.get("1"), panel.width/2, panel.height/2 + 250, 100, 100));
++        objects.put("TITLE", new Object(imageStock.get("3"), 0,25,1000,410));
++        objects.put("MENUBG", new Object(imageStock.get("4"), 0,-40,1754,1240));
++
++        objects.put("START BUTTON", new Object(imageStock.get("5"), 0,panel.height/2 - 50,200,80));
++        objects.put("SETTINGS BUTTON", new Object(imageStock.get("7"), 0,panel.height/2 + 50,200,80));
++        objects.put("ABOUT BUTTON", new Object(imageStock.get("9"), 0,panel.height/2 + 140,200,80));
++        objects.put("EXIT BUTTON", new Object(imageStock.get("9"), 12,panel.height/2 + 220,200,80));
++        System.out.println(objects.get("EXIT BUTTON").x);
+ 
+         panel.addMouseListener(new MouseListener() {
+             @Override
+@@ -69,7 +94,40 @@
+             gg.drawString("main.Main Menu", 0, 50);
+         }
+ 
++        if (objects.get("START BUTTON").hovering(panel.curX, panel.curY)) {
++            Object o = objects.get("START BUTTON");
++            o.image = imageStock.get("6");
++        } else {
++            Object o = objects.get("START BUTTON");
++            o.image = imageStock.get("5");
++        }
++
++        if (objects.get("SETTINGS BUTTON").hovering(panel.curX, panel.curY)) {
++            Object o = objects.get("SETTINGS BUTTON");
++            o.image = imageStock.get("8");
++        } else {
++            Object o = objects.get("SETTINGS BUTTON");
++            o.image = imageStock.get("7");
++        }
++
++        if (objects.get("ABOUT BUTTON").hovering(panel.curX, panel.curY)) {
++            Object o = objects.get("ABOUT BUTTON");
++            o.image = imageStock.get("10");
++        } else {
++            Object o = objects.get("ABOUT BUTTON");
++            o.image = imageStock.get("9");
++        }
++
++        if (objects.get("EXIT BUTTON").hovering(panel.curX, panel.curY)) {
++            Object o = objects.get("EXIT BUTTON");
++            o.image = imageStock.get("h");
++        } else {
++            Object o = objects.get("EXIT BUTTON");
++            o.image = imageStock.get("t");
++        }
++
+         for (HashMap.Entry<String, Object> entry : objects.entrySet()) entry.getValue().draw(gg, panel.camX, panel.camY);
++        objects.get("EXIT BUTTON").draw(gg, panel.camX, panel.camY);
+ 
+         pressFun();
+         clickFun();
+@@ -80,16 +138,15 @@
+         if (press && objects.get("START BUTTON").hovering(panel.curX, panel.curY) && objects.get("START BUTTON").hovering(pressX, pressY)) {
+             // this runs only if the initially pressed location is hovering the start button
+             // and if the cursor is hovering the start button
+-
+             Object o = objects.get("START BUTTON");
+-            o.image = imageStock.get("2"); // change the button image
++            o.image = imageStock.get("6"); // change the button image
+         } else {
+             // reset pressX and pressY so the code above will not run when the cursor is dragged out the button and back again
+             pressX = -1;
+             pressY = -1;
+ 
+             Object o = objects.get("START BUTTON");
+-            o.image = imageStock.get("1"); // change the button image
++            o.image = imageStock.get("5"); // change the button image
+         }
+     }
+ 
+@@ -106,6 +163,13 @@
+             // start the game
+             panel.game.start();
+         }
++
++        if (objects.get("EXIT BUTTON").hovering(panel.curX, panel.curY)) {
++            System.out.print("butt clicked");
++
++            // close the mainMenu
++            System.exit(0);
++        }
+         System.out.println();
+ 
+         click = false;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"560bc14f-6c16-432b-b30d-533fbccd98bd\" name=\"Changes\" comment=\"added blue red spike\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/Splash.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/SplashPanel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2h20mtLFFcyxOoMsD7lV3R5wcxw\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/assets/game/floors/groupBlocks\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\jvaquino\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\game\\floors\\groupBlocks\" />\r\n      <recent name=\"C:\\Users\\juliu\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\game\\tiles\" />\r\n      <recent name=\"C:\\Users\\juliu\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\game\\floors\\maps\" />\r\n      <recent name=\"C:\\Users\\juliu\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\game\\floors\\groupBlocks\" />\r\n      <recent name=\"C:\\Users\\jvaquino\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\game\\tiles\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\juliu\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\game\\floors\\maps\" />\r\n      <recent name=\"C:\\Users\\jvaquino\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\assets\\sounds\" />\r\n      <recent name=\"C:\\Users\\jvaquino\\OneDrive - Asia Pacific College\\Documents\\School\\1st Year\\Term 3\\DATSTRC\\untitled\\src\\utilities\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Splash\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.Main\" />\r\n      <module name=\"untitled\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Splash\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.Splash\" />\r\n      <module name=\"untitled\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Splash\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"560bc14f-6c16-432b-b30d-533fbccd98bd\" name=\"Changes\" comment=\"\" />\r\n      <created>1716777030108</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716777030108</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"uhh\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716793604676</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716793604676</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"not yet\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717081222481</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717081222481</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"added to tile movement\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717160196307</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717160196307</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"added floor travel&#10;added hud&#10;added hearts&#10;added spike&#10;added restart level\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717230283975</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717230283975</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"added snail\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717254807941</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717254807941</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"added snappy&#10;added fps\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717292727906</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717292727906</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"added game over screen\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717294635945</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717294635945</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"added sound&#10;added sum poop\">\r\n      <created>1717398828767</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717398828767</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"added unfinished group block\">\r\n      <created>1717400344120</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717400344120</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"added finished group block\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717422632121</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717422632122</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"added finished group block\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717422653923</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717422653923</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"added multiple group blocks\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717425566018</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717425566018</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"added player dies when trapped in a block\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717426510759</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717426510759</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"added blue red spike\">\r\n      <created>1717548029568</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717548029568</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"15\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"uhh\" />\r\n    <MESSAGE value=\"not yet\" />\r\n    <MESSAGE value=\"added to tile movement\" />\r\n    <MESSAGE value=\"added floor travel&#10;added hud&#10;added hearts&#10;added spike&#10;added restart level\" />\r\n    <MESSAGE value=\"added snail\" />\r\n    <MESSAGE value=\"added snappy&#10;added fps\" />\r\n    <MESSAGE value=\"added game over screen\" />\r\n    <MESSAGE value=\"added sound&#10;added sum poop\" />\r\n    <MESSAGE value=\"added unfinished group block\" />\r\n    <MESSAGE value=\"added finished group block\" />\r\n    <MESSAGE value=\"added multiple group blocks\" />\r\n    <MESSAGE value=\"added player dies when trapped in a block\" />\r\n    <MESSAGE value=\"added blue red spike\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"added blue red spike\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 705e6a32d992d1e14b8fef8cbc4d4ab3cc64a801)
++++ b/.idea/workspace.xml	(date 1717554184497)
+@@ -4,11 +4,22 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added blue red spike">
+-      <change afterPath="$PROJECT_DIR$/src/main/Splash.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/SplashPanel.java" afterDir="false" />
++    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added multiple group blocks">
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/AboutOff.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/AboutOn.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/ExitOff.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/ExitOn.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/MainMenuBG.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/SPLASH.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/SettingsOff.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/SettingsOn.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/StartOff.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/StartOn.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/Title.png" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Splash.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/SplashPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SplashPanel.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -37,15 +48,15 @@
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent">
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/game/floors/groupBlocks" />
++    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+   </component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+-      <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
+-      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
+       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\maps" />
+       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
++      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
+       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
++      <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\maps" />
+@@ -190,22 +201,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1717425566018</updated>
+     </task>
+-    <task id="LOCAL-00013" summary="added player dies when trapped in a block">
+-      <option name="closed" value="true" />
+-      <created>1717426510759</created>
+-      <option name="number" value="00013" />
+-      <option name="presentableId" value="LOCAL-00013" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1717426510759</updated>
+-    </task>
+-    <task id="LOCAL-00014" summary="added blue red spike">
+-      <created>1717548029568</created>
+-      <option name="number" value="00014" />
+-      <option name="presentableId" value="LOCAL-00014" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1717548029568</updated>
+-    </task>
+-    <option name="localTasksCounter" value="15" />
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -220,6 +216,7 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="uhh" />
+     <MESSAGE value="not yet" />
+     <MESSAGE value="added to tile movement" />
+@@ -231,8 +228,6 @@
+     <MESSAGE value="added unfinished group block" />
+     <MESSAGE value="added finished group block" />
+     <MESSAGE value="added multiple group blocks" />
+-    <MESSAGE value="added player dies when trapped in a block" />
+-    <MESSAGE value="added blue red spike" />
+-    <option name="LAST_COMMIT_MESSAGE" value="added blue red spike" />
++    <option name="LAST_COMMIT_MESSAGE" value="added multiple group blocks" />
+   </component>
+ </project>
+\ No newline at end of file
