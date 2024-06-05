@@ -1,5 +1,6 @@
 package main;
 
+import utilities.Object;
 import utilities.Sound;
 
 import javax.swing.*;
@@ -18,6 +19,7 @@ public class Panel extends JPanel implements Runnable {
     Game game;
     GameOver gameOver;
     Sound sound;
+    Object cursor;
 
     Panel(Main main, int width, int height) {
         this.width = width;
@@ -32,6 +34,7 @@ public class Panel extends JPanel implements Runnable {
         game = new Game(this, main);
         gameOver = new GameOver(this);
         sound = new Sound();
+        cursor = new Object(new ImageIcon("src/assets/mainMenu/cursor.png").getImage(), 0, 0, 100, 100);
 
         addMouseMotionListener(new MouseMotionListener() {
             @Override
@@ -85,6 +88,9 @@ public class Panel extends JPanel implements Runnable {
             gg.drawString(width + " " + height, curX + 10, curY);
             gg.drawString(curX + " " + curY, curX + 10, curY + 15);
         }
+
+        cursor.draw(gg, 0, 0);
+        cursor.gotoxy(curX - 15, curY - 15);
 
         gg.dispose();
     }
