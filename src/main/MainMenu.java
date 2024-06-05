@@ -2,11 +2,15 @@ package main;
 
 import utilities.Object;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class MainMenu {
@@ -17,6 +21,8 @@ public class MainMenu {
     boolean click, press;
     int pressX, pressY;
 
+    boolean initialHover = false;
+
     MainMenu(Panel panel) {
         this.panel = panel;
         visible = true;
@@ -25,9 +31,28 @@ public class MainMenu {
         String imagePath = "src/assets/mainMenu/";
         imageStock.put("1", new ImageIcon(imagePath + "my beloved.png").getImage());
         imageStock.put("2", new ImageIcon(imagePath + "my beloved2.png").getImage());
+        imageStock.put("3", new ImageIcon(imagePath + "Title.png").getImage());
+        imageStock.put("4", new ImageIcon(imagePath + "MainMenuBG.png").getImage());
+
+        imageStock.put("5", new ImageIcon(imagePath + "StartOff.png").getImage());
+        imageStock.put("6", new ImageIcon(imagePath + "StartOn.png").getImage());
+        imageStock.put("7", new ImageIcon(imagePath + "SettingsOff.png").getImage());
+        imageStock.put("8", new ImageIcon(imagePath + "SettingsOn.png").getImage());
+        imageStock.put("9", new ImageIcon(imagePath + "AboutOff.png").getImage());
+        imageStock.put("10", new ImageIcon(imagePath + "AboutOn.png").getImage());
+        imageStock.put("t", new ImageIcon(imagePath + "ExitOff.png").getImage());
+        imageStock.put("h", new ImageIcon(imagePath + "ExitOn.png").getImage());
 
         objects = new HashMap<>();
-        objects.put("START BUTTON", new Object(imageStock.get("1"), panel.width/2, panel.height/2 + 250, 100, 100));
+        objects.put("START 2", new Object(imageStock.get("1"), panel.width/2, panel.height/2 + 250, 100, 100));
+        objects.put("TITLE", new Object(imageStock.get("3"), 0,25,1000,410));
+        objects.put("MENUBG", new Object(imageStock.get("4"), 0,-40,1754,1240));
+
+        objects.put("START BUTTON", new Object(imageStock.get("5"), 0,panel.height/2 - 50,200,80));
+        objects.put("SETTINGS BUTTON", new Object(imageStock.get("7"), 0,panel.height/2 + 50,200,80));
+        objects.put("ABOUT BUTTON", new Object(imageStock.get("9"), 0,panel.height/2 + 140,200,80));
+        objects.put("EXIT BUTTON", new Object(imageStock.get("9"), 12,panel.height/2 + 220,200,80));
+        System.out.println(objects.get("EXIT BUTTON").x);
 
         panel.addMouseListener(new MouseListener() {
             @Override
@@ -69,7 +94,40 @@ public class MainMenu {
             gg.drawString("main.Main Menu", 0, 50);
         }
 
+        if (objects.get("START BUTTON").hovering(panel.curX, panel.curY)) {
+            Object o = objects.get("START BUTTON");
+            o.image = imageStock.get("6");
+        } else {
+            Object o = objects.get("START BUTTON");
+            o.image = imageStock.get("5");
+        }
+
+        if (objects.get("SETTINGS BUTTON").hovering(panel.curX, panel.curY)) {
+            Object o = objects.get("SETTINGS BUTTON");
+            o.image = imageStock.get("8");
+        } else {
+            Object o = objects.get("SETTINGS BUTTON");
+            o.image = imageStock.get("7");
+        }
+
+        if (objects.get("ABOUT BUTTON").hovering(panel.curX, panel.curY)) {
+            Object o = objects.get("ABOUT BUTTON");
+            o.image = imageStock.get("10");
+        } else {
+            Object o = objects.get("ABOUT BUTTON");
+            o.image = imageStock.get("9");
+        }
+
+        if (objects.get("EXIT BUTTON").hovering(panel.curX, panel.curY)) {
+            Object o = objects.get("EXIT BUTTON");
+            o.image = imageStock.get("h");
+        } else {
+            Object o = objects.get("EXIT BUTTON");
+            o.image = imageStock.get("t");
+        }
+
         for (HashMap.Entry<String, Object> entry : objects.entrySet()) entry.getValue().draw(gg, panel.camX, panel.camY);
+        objects.get("EXIT BUTTON").draw(gg, panel.camX, panel.camY);
 
         pressFun();
         clickFun();
@@ -80,16 +138,15 @@ public class MainMenu {
         if (press && objects.get("START BUTTON").hovering(panel.curX, panel.curY) && objects.get("START BUTTON").hovering(pressX, pressY)) {
             // this runs only if the initially pressed location is hovering the start button
             // and if the cursor is hovering the start button
-
             Object o = objects.get("START BUTTON");
-            o.image = imageStock.get("2"); // change the button image
+            o.image = imageStock.get("6"); // change the button image
         } else {
             // reset pressX and pressY so the code above will not run when the cursor is dragged out the button and back again
             pressX = -1;
             pressY = -1;
 
             Object o = objects.get("START BUTTON");
-            o.image = imageStock.get("1"); // change the button image
+            o.image = imageStock.get("5"); // change the button image
         }
     }
 
@@ -105,6 +162,13 @@ public class MainMenu {
             visible = false;
             // start the game
             panel.game.start();
+        }
+
+        if (objects.get("EXIT BUTTON").hovering(panel.curX, panel.curY)) {
+            System.out.print("butt clicked");
+
+            // close the mainMenu
+            System.exit(0);
         }
         System.out.println();
 

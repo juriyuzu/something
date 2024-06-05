@@ -31,7 +31,7 @@ public class SplashPanel extends JPanel implements Runnable {
         thread = new Thread(this);
         thread.start();
 
-        object = new Object(new ImageIcon("src/assets/mainMenu/my beloved.png").getImage(), 0, 0, width, height);
+        object = new Object(new ImageIcon("src/assets/mainMenu/SPLASH.png").getImage(), 0, 0, width, height);
         key = new Key(frame);
 
         main = new Main();

@@ -7,7 +7,7 @@ public class Splash extends JFrame {
 
     Splash() {
         setLayout(null);
-        setSize(800, 500);
+        setSize(1000, 710);
         setResizable(false);
         setUndecorated(true);
         setLocationRelativeTo(null);
