@@ -4,12 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="spike fix">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_06_2024_10_35_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_06_2024_10_35_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_06_2024_9_35_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_06_2024_9_35_AM__Changes_.xml" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added cursor">
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/blockFloor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/blockFloor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/blockWall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/blockWall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/spike.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/spike.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/spikeRed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/spikeRed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/wall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Static.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Static.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +54,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/game/floors/groupBlocks" />
   </component>
   <component name="RecentsManager">
@@ -213,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717551290686</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added cursor">
+      <created>1717555840194</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717555840194</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +252,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="uhh" />
     <MESSAGE value="not yet" />
     <MESSAGE value="added to tile movement" />
@@ -242,6 +267,7 @@
     <MESSAGE value="added player dies when trapped in a block" />
     <MESSAGE value="added blue red spike" />
     <MESSAGE value="added splash screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="added splash screen" />
+    <MESSAGE value="added cursor" />
+    <option name="LAST_COMMIT_MESSAGE" value="added cursor" />
   </component>
 </project>

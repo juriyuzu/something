@@ -3,6 +3,8 @@ package objects.tiles;
 import main.Game;
 import main.Panel;
 
+import java.util.Random;
+
 public class Static extends Tile {
 
     public Static(Panel panel, Game game, int x, int y, TileType type) {
@@ -15,7 +17,7 @@ public class Static extends Tile {
 
         switch (type) {
             case WALL -> image = game.images.get("WALL");
-            case FLOOR -> image = game.images.get("FLOOR");
+            case FLOOR -> image = game.images.get("FLOOR" + game.random.nextInt(0, 12));
             case EXIT -> {
                 image = game.images.get("EXIT");
                 pauseAble = true;

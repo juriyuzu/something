@@ -5,6 +5,7 @@ import objects.entities.Snail;
 import objects.entities.Wandering;
 import objects.tiles.*;
 import utilities.*;
+import utilities.Object;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class Game {
     Panel panel;
     public boolean visible;
     Save save;
-    Random random;
+    public Random random;
     public HashMap<String, Image> images;
     public LinkedList<LinkedList<Tile>> maps;
     public LinkedList<LinkedList<Integer>> playerPos;
@@ -34,6 +35,7 @@ public class Game {
     public HUD hud;
     public int clicks;
     Key key;
+    Object bg;
 
     Game(Panel panel, Main main) {
         this.panel = panel;
@@ -49,11 +51,13 @@ public class Game {
             String imagePath = "src/assets/game/tiles/";
             images.put("PATH", new ImageIcon(imagePath + "path.png").getImage());
             images.put("WALL", new ImageIcon(imagePath + "wall.png").getImage());
-            images.put("FLOOR", new ImageIcon(imagePath + "floor.png").getImage());
+            for (int i = 0; i < 11; i++) images.put("FLOOR" + i, new ImageIcon(imagePath + "floor" + i + ".png").getImage());
             images.put("BLOCK FLOOR", new ImageIcon(imagePath + "blockFloor.png").getImage());
             images.put("BLOCK WALL", new ImageIcon(imagePath + "blockWall.png").getImage());
             images.put("EXIT", new ImageIcon(imagePath + "exit.png").getImage());
+            images.put("BG", new ImageIcon(imagePath + "bg.png").getImage());
         }
+        bg = new Object(images.get("BG"), 0, 0, panel.width, panel.height);
 
         int mapsAmount = 6;
         maps = new LinkedList<>();
@@ -172,6 +176,8 @@ public class Game {
             gg.setColor(new Color(0x000000));
             gg.drawString("main.Game", 0, 50);
         }
+
+        bg.draw(gg, 0, 0);
 
         // draw the map
         for (Tile tile : maps.get(currentMap)) tile.draw(gg, panel.camX, panel.camY);
