@@ -40,7 +40,7 @@ public class Spike extends Block {
     public void clickFun() {
         on = !on;
 
-        if (spikeCheck() && AStar.rectRect(game.player.x, game.player.y, game.player.w/2, game.player.h/2, x, y, w/2, h/2))
+        if (!spikeCheck() && AStar.rectRect(game.player.x, game.player.y, game.player.w/2, game.player.h/2, x, y, w/2, h/2))
             game.player.dead();
     }
 
