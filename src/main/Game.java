@@ -36,6 +36,7 @@ public class Game {
     public int clicks;
     Key key;
     Object bg;
+    Sound2 bgm;
 
     Game(Panel panel, Main main) {
         this.panel = panel;
@@ -45,13 +46,15 @@ public class Game {
         save = new Save();
         random = new Random();
         key = new Key(main);
+        bgm = new Sound2("src/assets/sounds/Shikanokonokonokokoshitantan.wav");
+        bgm.playOnLoop();
 
         images = new HashMap<>();
         {
             String imagePath = "src/assets/game/tiles/";
             images.put("PATH", new ImageIcon(imagePath + "path.png").getImage());
             images.put("WALL", new ImageIcon(imagePath + "wall.png").getImage());
-            for (int i = 0; i < 11; i++) images.put("FLOOR" + i, new ImageIcon(imagePath + "floor" + i + ".png").getImage());
+            for (int i = 1; i < 11; i++) images.put("FLOOR" + i, new ImageIcon(imagePath + "floor" + i + ".png").getImage());
             images.put("BLOCK FLOOR", new ImageIcon(imagePath + "blockFloor.png").getImage());
             images.put("BLOCK WALL", new ImageIcon(imagePath + "blockWall.png").getImage());
             images.put("EXIT", new ImageIcon(imagePath + "exit.png").getImage());
@@ -222,5 +225,6 @@ public class Game {
         panel.camY = 0;
         hud.hearts = 3;
         panel.gameOver.visible = true;
+        bgm.stop();
     }
 }

@@ -8,12 +8,12 @@ import java.awt.event.ComponentListener;
 public class Main extends JFrame {
     Panel panel;
 
-    Main() {
+    Main(JFrame splash) {
         setLayout(null);
         setResizable(false);
         setUndecorated(true);
         setExtendedState(MAXIMIZED_BOTH);
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         // Set the cursor to be invisible
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -49,7 +49,7 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         System.out.println("Hello Nigga.");
         SwingUtilities.invokeLater(() -> {
-            Main mainFrame = new Main();
+            Main mainFrame = new Main(null);
             mainFrame.setVisible(true);
         });
     }

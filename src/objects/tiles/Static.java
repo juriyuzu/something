@@ -17,7 +17,7 @@ public class Static extends Tile {
 
         switch (type) {
             case WALL -> image = game.images.get("WALL");
-            case FLOOR -> image = game.images.get("FLOOR" + game.random.nextInt(0, 12));
+            case FLOOR -> image = game.images.get("FLOOR" + game.random.nextInt(1, 11));
             case EXIT -> {
                 image = game.images.get("EXIT");
                 pauseAble = true;

@@ -34,7 +34,8 @@ public class SplashPanel extends JPanel implements Runnable {
         object = new Object(new ImageIcon("src/assets/mainMenu/SPLASH.png").getImage(), 0, 0, width, height);
         key = new Key(frame);
 
-        main = new Main();
+        main = new Main(frame);
+        lock = true;
 
         addMouseMotionListener(new MouseMotionListener() {
             @Override
@@ -95,6 +96,7 @@ public class SplashPanel extends JPanel implements Runnable {
         }
     }
 
+    boolean lock;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D gg = (Graphics2D) g;
@@ -112,9 +114,9 @@ public class SplashPanel extends JPanel implements Runnable {
 
         object.draw(gg, 0, 0);
 
-        if (key.space || click) {
-            frame.dispose();
+        if (key.space || click && lock) {
             main.setVisible(true);
+            lock = false;
         }
 
         gg.dispose();

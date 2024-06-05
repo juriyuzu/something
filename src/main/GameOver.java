@@ -15,10 +15,12 @@ public class GameOver {
     int pressX, pressY;
     HashMap<String, Object> objects;
     HashMap<String, Image> imageStock;
+    Game game;
 
-    GameOver(Panel panel) {
+    GameOver(Panel panel, Game game) {
         this.panel = panel;
         visible = false;
+        this.game = game;
 
         imageStock = new HashMap<>();
         String imagePath = "src/assets/mainMenu/";
@@ -101,6 +103,7 @@ public class GameOver {
 
             visible = false;
             panel.mainMenu.visible = true;
+            game.bgm.playOnLoop();
         }
         System.out.println();
 

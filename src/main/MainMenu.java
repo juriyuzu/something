@@ -23,7 +23,7 @@ public class MainMenu {
 
     boolean initialHover = false;
 
-    MainMenu(Panel panel) {
+    MainMenu(Panel panel, int width, int height) {
         this.panel = panel;
         visible = true;
 
@@ -46,7 +46,16 @@ public class MainMenu {
         objects = new HashMap<>();
         objects.put("START 2", new Object(imageStock.get("1"), panel.width/2, panel.height/2 + 250, 100, 100));
         objects.put("TITLE", new Object(imageStock.get("3"), 0,25,1000,410));
-        objects.put("MENUBG", new Object(imageStock.get("4"), 0,-40,1754,1240));
+        int menuW = 1754;
+        int menuH = 1240;
+        if (Math.abs(width - menuW) > Math.abs(height - menuH)) {
+            menuH = (int) ((double) menuH / menuW * width);
+            menuW = width;
+        } else {
+            menuW = (int) ((double) menuW / menuH * height);
+            menuH = height;
+        }
+        objects.put("MENUBG", new Object(imageStock.get("4"), 0,0, menuW, menuH));
 
         objects.put("START BUTTON", new Object(imageStock.get("5"), 0,panel.height/2 - 50,200,80));
         objects.put("SETTINGS BUTTON", new Object(imageStock.get("7"), 0,panel.height/2 + 50,200,80));

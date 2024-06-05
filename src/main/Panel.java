@@ -31,9 +31,9 @@ public class Panel extends JPanel implements Runnable {
         thread = new Thread(this);
         thread.start();
 
-        mainMenu = new MainMenu(this);
+        mainMenu = new MainMenu(this, width, height);
         game = new Game(this, main);
-        gameOver = new GameOver(this);
+        gameOver = new GameOver(this, game);
         sound = new Sound();
         cursor = new Object(new ImageIcon("src/assets/mainMenu/cursor.png").getImage(), 0, 0, 100, 100);
 
