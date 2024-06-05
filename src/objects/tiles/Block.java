@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Block extends Tile {
-    boolean on;
+    public boolean on;
     Image imageOn, imageOff;
     public LinkedList<Integer> group;
     public boolean lock;

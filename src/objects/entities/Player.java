@@ -4,6 +4,7 @@ import main.Game;
 import main.HUD;
 import main.Panel;
 import objects.tiles.Block;
+import objects.tiles.Spike;
 import objects.tiles.Tile;
 import objects.tiles.TileType;
 import utilities.AStar;
@@ -133,9 +134,13 @@ public class Player extends Object {
             boolean pause = false;
             for (Tile tile : game.pauseAble.get(game.currentMap))
                 if (tile.pauseAble && tile.x == path.get(pathIndex).x * tileSize && tile.y == path.get(pathIndex).y * tileSize) {
-                tileCheck = tile;
-                pause = true;
-                break;
+                    if (tile.type == TileType.HAZARD) {
+                        Spike spike = (Spike) tile;
+                        if (spike.spikeCheck()) continue;
+                    }
+                    tileCheck = tile;
+                    pause = true;
+                    break;
             }
 
             pathIndex++;
@@ -191,7 +196,7 @@ public class Player extends Object {
             System.out.print("clicked tile at " + tile.getX() + ", " + tile.getY());
             if (move) stopMove = true;
             if (!move) {
-                tile.clickFun();
+                if (tile.type != TileType.HAZARD) tile.clickFun();
                 if (tile.type == TileType.BLOCK) {
                     Block block = (Block) tile;
                     if (!block.group.isEmpty()) {

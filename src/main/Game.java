@@ -108,9 +108,19 @@ public class Game {
                             }
                         }
                     }
-                    case '3' -> {
-                        maps.getLast().add(new Spike(panel, this, k * tileSize, j * tileSize));
-                        pauseAble.getLast().add(maps.getLast().getLast());
+                    case '3', '4' -> {
+                        maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
+                        Spike spike = new Spike(panel, this, k * tileSize, j * tileSize, map[j][k] != '3');
+                        maps.getLast().add(spike);
+                        pauseAble.getLast().add(spike);
+                        if (!groupBlocksMaps.isEmpty()) {
+                            for (char[][] m : groupBlocksMaps) {
+                                if (m != null && m[j][k] != '.') {
+                                    spike.addGroup(m[j][k]);
+                                    groupBlocks.getLast().add(m[j][k], spike);
+                                }
+                            }
+                        }
         }}}
         System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
 
