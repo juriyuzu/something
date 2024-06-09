@@ -19,7 +19,7 @@ public class Panel extends JPanel implements Runnable {
     MainMenu mainMenu;
     Game game;
     GameOver gameOver;
-    Sound sound;
+    public Sound sound;
     Object cursor;
 
     Panel(Main main, int width, int height) {
@@ -32,9 +32,9 @@ public class Panel extends JPanel implements Runnable {
         thread.start();
 
         mainMenu = new MainMenu(this, width, height);
+        sound = new Sound(mainMenu);
         game = new Game(this, main);
         gameOver = new GameOver(this, game);
-        sound = new Sound();
         cursor = new Object(new ImageIcon("src/assets/mainMenu/cursor.png").getImage(), 0, 0, 100, 100);
 
         addMouseMotionListener(new MouseMotionListener() {

@@ -10,7 +10,6 @@ import objects.tiles.TileType;
 import utilities.AStar;
 import utilities.Node;
 import utilities.Object;
-import utilities.Sound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -188,7 +187,7 @@ public class Player extends Object {
         }
         panel.clickEffect = 10;
         panel.clicks++;
-        Sound.play("src/assets/sounds/blip.wav");
+        game.panel.sound.play("BLIP");
         game.clicks++;
 
         System.out.print("screen clicked");

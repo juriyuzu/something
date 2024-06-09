@@ -103,7 +103,7 @@ public class GameOver {
 
             visible = false;
             panel.mainMenu.visible = true;
-            game.bgm.playOnLoop();
+            panel.sound.playOnLoop("YES");
         }
         System.out.println();
 

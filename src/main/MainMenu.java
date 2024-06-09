@@ -20,12 +20,14 @@ public class MainMenu {
     HashMap<String, Image> imageStock;
     boolean click, press;
     int pressX, pressY;
+    public boolean mute;
 
     boolean initialHover = false;
 
     MainMenu(Panel panel, int width, int height) {
         this.panel = panel;
         visible = true;
+        mute = true;
 
         imageStock = new HashMap<>();
         String imagePath = "src/assets/mainMenu/";

@@ -14,7 +14,7 @@ import java.awt.event.MouseListener;
 import java.util.*;
 
 public class Game {
-    Panel panel;
+    public Panel panel;
     public boolean visible;
     Save save;
     public Random random;
@@ -36,7 +36,7 @@ public class Game {
     public int clicks;
     Key key;
     Object bg;
-    Sound2 bgm;
+//    Sound2 bgm;
 
     Game(Panel panel, Main main) {
         this.panel = panel;
@@ -46,8 +46,9 @@ public class Game {
         save = new Save();
         random = new Random();
         key = new Key(main);
-        bgm = new Sound2("src/assets/sounds/Shikanokonokonokokoshitantan.wav");
-        bgm.playOnLoop();
+//        bgm = new Sound2("src/assets/sounds/Shikanokonokonokokoshitantan.wav");
+//        bgm.playOnLoop();
+        panel.sound.playOnLoop("YES");
 
         images = new HashMap<>();
         {
@@ -225,6 +226,6 @@ public class Game {
         panel.camY = 0;
         hud.hearts = 3;
         panel.gameOver.visible = true;
-        bgm.stop();
+        panel.sound.stop("YES");
     }
 }
