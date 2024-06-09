@@ -31,6 +31,7 @@ public class Player extends Object {
     Tile destination;
     Image pathImage;
     HUD hud;
+    ImageIcon test;
 
     public Player(Panel panel, Game game) {
         super();
@@ -40,12 +41,13 @@ public class Player extends Object {
         w = tileSize;
         h = tileSize;
         pathImage = new ImageIcon("src/assets/mainMenu/my beloved.png").getImage();
-        image = new ImageIcon("src/assets/game/player/player.png").getImage();
+        image = new ImageIcon("src/assets/game/player/neco-arc-stand.gif").getImage();
 
         this.panel = panel;
         this.game = game;
         hud = game.hud;
         move = false;
+        test = new ImageIcon("src/assets/game/player/neco-arc-stand.gif");
 
         panel.addMouseListener(new MouseListener() {
             @Override

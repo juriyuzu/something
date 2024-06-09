@@ -32,7 +32,7 @@ public class Panel extends JPanel implements Runnable {
         thread.start();
 
         mainMenu = new MainMenu(this, width, height);
-        sound = new Sound(mainMenu);
+        sound = new Sound();
         game = new Game(this, main);
         gameOver = new GameOver(this, game);
         cursor = new Object(new ImageIcon("src/assets/mainMenu/cursor.png").getImage(), 0, 0, 100, 100);

@@ -9,11 +9,11 @@ import java.util.HashMap;
 
 public class Sound {
     private HashMap<String, Clip> sounds;
-    MainMenu mainMenu;
+    boolean mute;
 
-    public Sound(MainMenu mainMenu) {
+    public Sound() {
         sounds = new HashMap<>();
-        if (mainMenu != null) this.mainMenu = mainMenu;
+        mute = true;
 
         String src = "src/assets/sounds/";
         loadSound("BLIP", src + "blip.wav");
@@ -37,7 +37,7 @@ public class Sound {
 
     // Method to play a sound from the HashMap
     public void play(String key) {
-        if (mainMenu != null && mainMenu.mute) return;
+        if (mute) return;
 
         Clip clip = sounds.get(key);
         if (clip != null) {
@@ -55,7 +55,7 @@ public class Sound {
 
     // Method to play a sound on a loop
     public void playOnLoop(String key) {
-        if (mainMenu != null && mainMenu.mute) return;
+        if (mute) return;
 
         Clip clip = sounds.get(key);
         if (clip != null) {
@@ -92,7 +92,7 @@ public class Sound {
 
     // Example main method to show usage
     public static void main(String[] args) {
-        Sound sound = new Sound(null);
+        Sound sound = new Sound();
         sound.loadSound("test", "path_to_your_sound_file.wav");
         sound.play("test");
 
