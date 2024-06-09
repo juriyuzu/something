@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added new Sound class">
-      <change afterPath="$PROJECT_DIR$/src/assets/game/player/neco-arc-stand.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/game/player/neco-arc-walk.gif" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added gif test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Panel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Sound.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717900496693</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added gif test">
+      <option name="closed" value="true" />
+      <created>1717914596667</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717914596667</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,6 +305,7 @@
     <MESSAGE value="bgm test" />
     <MESSAGE value="added Sound class" />
     <MESSAGE value="added new Sound class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new Sound class" />
+    <MESSAGE value="added gif test" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gif test" />
   </component>
 </project>

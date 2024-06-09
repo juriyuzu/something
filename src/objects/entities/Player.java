@@ -15,6 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Player extends Object {
@@ -32,6 +33,7 @@ public class Player extends Object {
     Image pathImage;
     HUD hud;
     ImageIcon test;
+    LinkedList<Image> standSprite;
 
     public Player(Panel panel, Game game) {
         super();
@@ -42,6 +44,11 @@ public class Player extends Object {
         h = tileSize;
         pathImage = new ImageIcon("src/assets/mainMenu/my beloved.png").getImage();
         image = new ImageIcon("src/assets/game/player/neco-arc-stand.gif").getImage();
+
+        standSprite = new LinkedList<>();
+        String src = "src/assets/game/player/neco-arc-stand/";
+        for (int i = 1; i <= 9; i++) standSprite.add(new ImageIcon(src + "frame " + i + ".png").getImage());
+        standSpriteIndex = 0;
 
         this.panel = panel;
         this.game = game;
@@ -79,11 +86,13 @@ public class Player extends Object {
         });
     }
 
+    double standSpriteIndex;
     public void draw(Graphics2D gg, int camX, int camY) {
         if (path != null) for (Node node : path)
             gg.drawImage(pathImage, node.x * tileSize + camX, node.y * tileSize + camY, tileSize / 2, tileSize / 2, null);
 
-        gg.drawImage(image, x + camX, y + camY, w, h, null);
+        gg.drawImage(standSprite.get((int) standSpriteIndex), x + camX, y + camY, w, h, null);
+        standSpriteIndex = (standSpriteIndex + 0.5) % 9;
 
         gg.setColor(Color.black);
         gg.setFont(new Font("Consolas", Font.BOLD, 15));
