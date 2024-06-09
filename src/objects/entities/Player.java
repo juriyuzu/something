@@ -118,26 +118,26 @@ public class Player extends Object {
             return;
         }
 
-        int speed = 3 * tileSize / 100;
-//        int xVel = (path.get(pathIndex).x - path.get(pathIndex - 1).x) * speed;
-//        int yVel = (path.get(pathIndex).y - path.get(pathIndex - 1).y) * speed;
+        int speed = 5 * tileSize / 100;
+        int xVel = (path.get(pathIndex).x - path.get(pathIndex - 1).x) * speed;
+        int yVel = (path.get(pathIndex).y - path.get(pathIndex - 1).y) * speed;
 
-        int xDiff = path.get(pathIndex).x - path.get(pathIndex - 1).x;
-        int yDiff = path.get(pathIndex).y - path.get(pathIndex - 1).y;
-        int xVel = 0;
-        int yVel = 0;
-        if (xDiff != 0 || yDiff != 0) {
-            if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                int value = (int) ((path.get(pathIndex).x * tileSize - x) * 0.1);
-                xVel = value == 0 ? (xDiff > 0 ? 1 : -1) : value;
-            } else {
-                int value = (int) ((path.get(pathIndex).y * tileSize - y) * 0.1);
-                yVel = value == 0 ? (yDiff > 0 ? 1 : -1) : value;
-            }
-        }
+//        int xDiff = path.get(pathIndex).x - path.get(pathIndex - 1).x;
+//        int yDiff = path.get(pathIndex).y - path.get(pathIndex - 1).y;
+//        int xVel = 0;
+//        int yVel = 0;
+//        if (xDiff != 0 || yDiff != 0) {
+//            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+//                int value = (int) ((path.get(pathIndex).x * tileSize - x) * 0.1);
+//                xVel = value == 0 ? (xDiff > 0 ? 1 : -1) : value;
+//            } else {
+//                int value = (int) ((path.get(pathIndex).y * tileSize - y) * 0.1);
+//                yVel = value == 0 ? (yDiff > 0 ? 1 : -1) : value;
+//            }
+//        }
 
         gotoxy(x + xVel, y + yVel);
-        if (Math.abs(path.get(pathIndex).x * tileSize - x) == 0 && Math.abs(path.get(pathIndex).y * tileSize - y) == 0) {
+        if (Math.abs(path.get(pathIndex).x * tileSize - x) < speed && Math.abs(path.get(pathIndex).y * tileSize - y) < speed) {
             gotoxy(path.get(pathIndex).x * tileSize, path.get(pathIndex).y * tileSize);
 
             Tile tileCheck = null;
