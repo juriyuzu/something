@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="reverted to smooth movement">
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/entities/Follow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Follow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/blockFloor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/blockFloor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SplashPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SplashPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Wandering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Wandering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/AStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Save.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717916783163</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="ok">
+      <created>1717993354519</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1717993354519</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,6 +315,7 @@
     <MESSAGE value="added gif test" />
     <MESSAGE value="added png sequence" />
     <MESSAGE value="reverted to smooth movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverted to smooth movement" />
+    <MESSAGE value="ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
 </project>

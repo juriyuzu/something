@@ -45,6 +45,7 @@ public class Player extends Object {
         h = tileSize;
         pathImage = new ImageIcon("src/assets/mainMenu/my beloved.png").getImage();
         image = new ImageIcon("src/assets/game/player/neco-arc-stand.gif").getImage();
+        opacity = 0.5f;
 
         standSprite = new LinkedList<>();
         String src = "src/assets/game/player/neco-arc-stand/";
@@ -92,8 +93,10 @@ public class Player extends Object {
         if (path != null) for (Node node : path)
             gg.drawImage(pathImage, node.x * tileSize + camX, node.y * tileSize + camY, tileSize / 2, tileSize / 2, null);
 
+        gg.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
         gg.drawImage(standSprite.get((int) standSpriteIndex), x + camX, y + camY, w, h, null);
         standSpriteIndex = (standSpriteIndex + 0.5) % 9;
+        gg.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 
         gg.setColor(Color.black);
         gg.setFont(new Font("Consolas", Font.BOLD, 15));

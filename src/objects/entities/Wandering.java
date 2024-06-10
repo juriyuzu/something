@@ -39,11 +39,9 @@ public class Wandering extends Object {
         move();
     }
 
-    int xVel = 0;
-    int yVel = 0;
     void move() {
-        int speed = this.speed * (100 / game.tileSize);
         int tileSize = game.tileSize;
+        int speed = 50 * tileSize / 100;
 
         if (follow.path == null || follow.path.size() < 2) {
             return;

@@ -9,6 +9,7 @@ public class Object {
     public int w;
     public int h;
     protected int priorityZ;
+    public float opacity;
 
     /**
      * A basic Graphics 2D instance that holds an Image, coordinates, and size.
@@ -20,6 +21,7 @@ public class Object {
         this.y = y;
         this.w = this.image.getWidth(null);
         this.h = this.image.getHeight(null);
+        opacity = 0.5f;
     }
 
     public Object(Image image, int x, int y, int w, int h) {

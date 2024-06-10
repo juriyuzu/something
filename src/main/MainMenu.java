@@ -20,14 +20,12 @@ public class MainMenu {
     HashMap<String, Image> imageStock;
     boolean click, press;
     int pressX, pressY;
-    public boolean mute;
 
     boolean initialHover = false;
 
     MainMenu(Panel panel, int width, int height) {
         this.panel = panel;
         visible = true;
-        mute = true;
 
         imageStock = new HashMap<>();
         String imagePath = "src/assets/mainMenu/";
@@ -63,7 +61,7 @@ public class MainMenu {
         objects.put("SETTINGS BUTTON", new Object(imageStock.get("7"), 0,panel.height/2 + 50,200,80));
         objects.put("ABOUT BUTTON", new Object(imageStock.get("9"), 0,panel.height/2 + 140,200,80));
         objects.put("EXIT BUTTON", new Object(imageStock.get("9"), 12,panel.height/2 + 220,200,80));
-        System.out.println(objects.get("EXIT BUTTON").x);
+//        System.out.println(objects.get("EXIT BUTTON").x);
 
         panel.addMouseListener(new MouseListener() {
             @Override

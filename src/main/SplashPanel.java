@@ -116,6 +116,7 @@ public class SplashPanel extends JPanel implements Runnable {
 
         if (key.space || click && lock) {
             main.setVisible(true);
+            frame.dispose();
             lock = false;
         }
 

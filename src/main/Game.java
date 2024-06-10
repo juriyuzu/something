@@ -130,7 +130,7 @@ public class Game {
                             }
                         }
         }}}
-        System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
+//        System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
 
         hud = new HUD(panel.width, panel.height);
         player = new Player(panel, this);
