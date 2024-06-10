@@ -30,7 +30,7 @@ public class Player extends Object {
     int pathIndex;
     boolean stopMove;
     Tile destination;
-    Tile location;
+    public Tile location;
     Image pathImage;
     HUD hud;
     ImageIcon test;
@@ -111,6 +111,8 @@ public class Player extends Object {
     }
 
     void move() {
+        if (game.pause) return;
+
         if (game.snail.visible && AStar.rectRect(game.snail.x, game.snail.y, game.snail.w/2, game.snail.h/2, x, y, w/2, h/2)) {
             System.out.println("dead");
             dead();
@@ -122,7 +124,7 @@ public class Player extends Object {
             return;
         }
 
-        int speed = 10 * tileSize / 100;
+        int speed = 5 * tileSize / 100;
         int xVel = (path.get(pathIndex).x - path.get(pathIndex - 1).x) * speed;
         int yVel = (path.get(pathIndex).y - path.get(pathIndex - 1).y) * speed;
 
@@ -144,7 +146,7 @@ public class Player extends Object {
         if (Math.abs(path.get(pathIndex).x * tileSize - x) < speed && Math.abs(path.get(pathIndex).y * tileSize - y) < speed) {
             gotoxy(path.get(pathIndex).x * tileSize, path.get(pathIndex).y * tileSize);
             location = null;
-            for (Tile tile : game.maps.get(game.currentMap)) if (tile.hovering(x / 2 - panel.camX, y / 2 - panel.camY)) {
+            for (Tile tile : game.maps.get(game.currentMap)) if (AStar.rectRect(tile.x, tile.y, tile.w/2, tile.h/2, x, y, w/2, h/2)) {
                 location = tile;
                 break;
             }

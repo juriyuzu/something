@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added leaderboards board opacity effect">
-      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/BackOff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/BackOn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/LeaderBoardsBoard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/LeaderBoardsSign.png" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added settings part&#10;added about part">
+      <change afterPath="$PROJECT_DIR$/src/main/Pause.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/floors/maps/floor 3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/HUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/HUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/entities/Follow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Follow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/entities/Wandering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Wandering.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,7 @@
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="main.HUD" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,7 +85,7 @@
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="main.HUD" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -297,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718024780777</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added settings part&#10;added about part">
+      <option name="closed" value="true" />
+      <created>1718027354777</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1718027354777</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -313,7 +325,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="uhh" />
     <MESSAGE value="not yet" />
     <MESSAGE value="added to tile movement" />
     <MESSAGE value="added floor travel&#10;added hud&#10;added hearts&#10;added spike&#10;added restart level" />
@@ -338,6 +349,7 @@
     <MESSAGE value="ok" />
     <MESSAGE value="asdf" />
     <MESSAGE value="added leaderboards board opacity effect" />
-    <option name="LAST_COMMIT_MESSAGE" value="added leaderboards board opacity effect" />
+    <MESSAGE value="added settings part&#10;added about part" />
+    <option name="LAST_COMMIT_MESSAGE" value="added settings part&#10;added about part" />
   </component>
 </project>

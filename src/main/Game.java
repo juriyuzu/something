@@ -46,6 +46,7 @@ public class Game {
         random = new Random();
         key = new Key(main);
         panel.sound.playOnLoop("YES");
+        pause = false;
 
         // Initialize images
         {
@@ -179,6 +180,11 @@ public class Game {
             key.spaceL = true;
         } else key.spaceL = false;
 
+        if (key.esc && !key.escL) {
+            pause = !pause;
+            key.escL = true;
+        } else key.escL = false;
+
         // Title
         {
             gg.setFont(new Font("Consolas", Font.BOLD, 50));
@@ -196,7 +202,6 @@ public class Game {
         for (Wandering w : wanderings.get(currentMap)) w.draw(gg, panel.camX, panel.camY);
 
         hud.draw(gg);
-
     }
 
     public void start() {
@@ -210,8 +215,15 @@ public class Game {
         panel.camY = panel.height/2 - tileSize/2 - mapSizes.get(currentMap).getLast() / 2 * tileSize;
         player.x = playerPos.get(currentMap).getLast() * tileSize;
         player.y = playerPos.get(currentMap).getFirst() * tileSize;
+        for (Tile tile : maps.get(currentMap)) if (AStar.rectRect(tile.x, tile.y, tile.w/2, tile.h/2, player.x, player.y, player.w/2, player.h/2)) {
+            player.location = tile;
+            break;
+        }
 
         pause = false;
+
+        System.out.println(player.location.x + " " + player.location.y);
+        for (Wandering w : wanderings.get(currentMap)) w.follow.refresh(player.location);
 
         snail.gotoxy(player.x, player.y);
         clicks = 0;

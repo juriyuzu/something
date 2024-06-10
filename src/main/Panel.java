@@ -21,6 +21,7 @@ public class Panel extends JPanel implements Runnable {
     GameOver gameOver;
     public Sound sound;
     Object cursor;
+    public Pause pause;
 
     Panel(Main main, int width, int height) {
         this.width = width;
@@ -34,6 +35,7 @@ public class Panel extends JPanel implements Runnable {
         mainMenu = new MainMenu(this, width, height);
         sound = new Sound();
         game = new Game(this, main);
+        pause = new Pause(game, width, height);
         gameOver = new GameOver(this, game);
         cursor = new Object(new ImageIcon("src/assets/mainMenu/cursor.png").getImage(), 0, 0, 100, 100);
 
@@ -79,6 +81,7 @@ public class Panel extends JPanel implements Runnable {
 
         mainMenu.draw(gg);
         game.draw(gg);
+        pause.draw(gg);
         gameOver.draw(gg);
         clickEffect(gg);
 

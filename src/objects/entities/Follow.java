@@ -16,7 +16,6 @@ public class Follow {
     int tileSize;
     Game game;
     Object object;
-    Tile tile;
 
     Follow(Game game, Object object, int tileSize) {
         this.game = game;
@@ -33,6 +32,7 @@ public class Follow {
     }
 
     void findPath() {
+        System.out.println("find path");
         if (destination == null || !destination.destinationAble) return;
 
         path = AStar.findPath(tileSize, game.maps.get(game.currentMap), object, game.mapSizes.get(game.currentMap), destination);
@@ -40,6 +40,7 @@ public class Follow {
 
         if (path != null) {
             for (Node n : path) System.out.println(n.x + ", " + n.y);
+            System.out.println("yes path");
         }
     }
 }
