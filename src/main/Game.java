@@ -36,7 +36,6 @@ public class Game {
     public int clicks;
     Key key;
     Object bg;
-//    Sound2 bgm;
 
     Game(Panel panel, Main main) {
         this.panel = panel;
@@ -46,91 +45,97 @@ public class Game {
         save = new Save();
         random = new Random();
         key = new Key(main);
-//        bgm = new Sound2("src/assets/sounds/Shikanokonokonokokoshitantan.wav");
-//        bgm.playOnLoop();
         panel.sound.playOnLoop("YES");
 
-        images = new HashMap<>();
+        // Initialize images
         {
+            images = new HashMap<>();
             String imagePath = "src/assets/game/tiles/";
             images.put("PATH", new ImageIcon(imagePath + "path.png").getImage());
             images.put("WALL", new ImageIcon(imagePath + "wall.png").getImage());
-            for (int i = 1; i < 11; i++) images.put("FLOOR" + i, new ImageIcon(imagePath + "floor" + i + ".png").getImage());
+            for (int i = 1; i < 8; i++) images.put("FLOOR" + i, new ImageIcon(imagePath + "floor" + i + ".png").getImage());
             images.put("BLOCK FLOOR", new ImageIcon(imagePath + "blockFloor.png").getImage());
             images.put("BLOCK WALL", new ImageIcon(imagePath + "blockWall.png").getImage());
             images.put("EXIT", new ImageIcon(imagePath + "exit.png").getImage());
             images.put("BG", new ImageIcon(imagePath + "bg.png").getImage());
+            bg = new Object(images.get("BG"), 0, 0, panel.width, panel.height);
         }
-        bg = new Object(images.get("BG"), 0, 0, panel.width, panel.height);
 
-        int mapsAmount = 6;
-        maps = new LinkedList<>();
-        playerPos = new LinkedList<>();
-        wanderings = new LinkedList<>();
-        groupBlocks = new LinkedList<>();
-        mapSizes = new LinkedList<>();
-        pauseAble = new LinkedList<>();
-        currentMap = 0;
-        for (int i = 0; i < mapsAmount; i++) {
-            char[][] map = save.read("src/assets/game/floors/maps/floor " + i + ".txt");
-            LinkedList<char[][]> groupBlocksMaps = new LinkedList<>();
-            for (int j = 0; j < 3; j++) groupBlocksMaps.add(save.read("src/assets/game/floors/groupBlocks/floor " + i + "." + j + ".txt"));
-            maps.add(new LinkedList<>());
+        // Initialize maps
+        {
+            int mapsAmount = 6;
+            maps = new LinkedList<>();
+            playerPos = new LinkedList<>();
+            wanderings = new LinkedList<>();
+            groupBlocks = new LinkedList<>();
+            mapSizes = new LinkedList<>();
+            pauseAble = new LinkedList<>();
+            currentMap = 0;
+            for (int i = 0; i < mapsAmount; i++) {
+                char[][] map = save.read("src/assets/game/floors/maps/floor " + i + ".txt");
+                LinkedList<char[][]> groupBlocksMaps = new LinkedList<>();
+                for (int j = 0; j < 3; j++)
+                    groupBlocksMaps.add(save.read("src/assets/game/floors/groupBlocks/floor " + i + "." + j + ".txt"));
+                maps.add(new LinkedList<>());
 
-            mapSizes.add(new LinkedList<>());
-            mapSizes.getLast().add(map[0].length);
-            mapSizes.getLast().add(map.length);
-            playerPos.add(new LinkedList<>());
-            wanderings.add(new LinkedList<>());
-            groupBlocks.add(new GroupBlock());
-            pauseAble.add(new LinkedList<>());
+                mapSizes.add(new LinkedList<>());
+                mapSizes.getLast().add(map[0].length);
+                mapSizes.getLast().add(map.length);
+                playerPos.add(new LinkedList<>());
+                wanderings.add(new LinkedList<>());
+                groupBlocks.add(new GroupBlock());
+                pauseAble.add(new LinkedList<>());
 
-            for (int j = 0; j < map.length; j++) for (int k = 0; k < map[j].length; k++)
-                switch (map[j][k]) {
-                    case '.', ',', 'A' -> {
-                        maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
+                for (int j = 0; j < map.length; j++)
+                    for (int k = 0; k < map[j].length; k++)
                         switch (map[j][k]) {
-                            case ',' -> {
-                                playerPos.getLast().add(j);
-                                playerPos.getLast().add(k);
+                            case '.', ',', 'A' -> {
+                                maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
+                                switch (map[j][k]) {
+                                    case ',' -> {
+                                        playerPos.getLast().add(j);
+                                        playerPos.getLast().add(k);
+                                    }
+                                    case 'A' -> {
+                                        wanderings.getLast().add(new Wandering(this, new int[]{k, j}));
+                                    }
+                                }
                             }
-                            case 'A' -> {
-                                wanderings.getLast().add(new Wandering(this, new int[]{k, j}));
+                            case '0' ->
+                                    maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.WALL));
+                            case '1' -> {
+                                maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.EXIT));
+                                pauseAble.getLast().add(maps.getLast().getLast());
                             }
-                        }
-                    }
-                    case '0' -> maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.WALL));
-                    case '1' -> {
-                        maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.EXIT));
-                        pauseAble.getLast().add(maps.getLast().getLast());
-                    }
-                    case '2' -> {
-                        Block block = new Block(panel, this, k * tileSize, j * tileSize);
-                        maps.getLast().add(block);
-                        if (!groupBlocksMaps.isEmpty()) {
-                            for (char[][] m : groupBlocksMaps) {
-                                if (m != null && m[j][k] != '.') {
-                                    block.addGroup(m[j][k]);
-                                    groupBlocks.getLast().add(m[j][k], block);
+                            case '2' -> {
+                                Block block = new Block(panel, this, k * tileSize, j * tileSize);
+                                maps.getLast().add(block);
+                                if (!groupBlocksMaps.isEmpty()) {
+                                    for (char[][] m : groupBlocksMaps) {
+                                        if (m != null && m[j][k] != '.') {
+                                            block.addGroup(m[j][k]);
+                                            groupBlocks.getLast().add(m[j][k], block);
+                                        }
+                                    }
+                                }
+                            }
+                            case '3', '4' -> {
+                                maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
+                                Spike spike = new Spike(panel, this, k * tileSize, j * tileSize, map[j][k] != '3');
+                                maps.getLast().add(spike);
+                                pauseAble.getLast().add(spike);
+                                if (!groupBlocksMaps.isEmpty()) {
+                                    for (char[][] m : groupBlocksMaps) {
+                                        if (m != null && m[j][k] != '.') {
+                                            spike.addGroup(m[j][k]);
+                                            groupBlocks.getLast().add(m[j][k], spike);
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                    case '3', '4' -> {
-                        maps.getLast().add(new Static(panel, this, k * tileSize, j * tileSize, TileType.FLOOR));
-                        Spike spike = new Spike(panel, this, k * tileSize, j * tileSize, map[j][k] != '3');
-                        maps.getLast().add(spike);
-                        pauseAble.getLast().add(spike);
-                        if (!groupBlocksMaps.isEmpty()) {
-                            for (char[][] m : groupBlocksMaps) {
-                                if (m != null && m[j][k] != '.') {
-                                    spike.addGroup(m[j][k]);
-                                    groupBlocks.getLast().add(m[j][k], spike);
-                                }
-                            }
-                        }
-        }}}
-//        System.out.println(playerPos.size() + " " + playerPos.getFirst().size());
+            }
+        }
 
         hud = new HUD(panel.width, panel.height);
         player = new Player(panel, this);

@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="ok">
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="asdf">
+      <change afterPath="$PROJECT_DIR$/src/utilities/WeightedRandom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/blockFloor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/blockFloor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor9.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/SplashPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/SplashPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/entities/Wandering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Wandering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Static.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Static.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Save.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +48,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Splash.executor": "Run",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
@@ -50,11 +64,11 @@
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\player" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\sounds" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\maps" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\sounds" />
-      <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\utilities" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Splash">
@@ -277,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717993354519</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="asdf">
+      <created>1718004013348</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1718004013348</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,6 +337,7 @@
     <MESSAGE value="added png sequence" />
     <MESSAGE value="reverted to smooth movement" />
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="asdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="asdf" />
   </component>
 </project>

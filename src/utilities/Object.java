@@ -21,7 +21,7 @@ public class Object {
         this.y = y;
         this.w = this.image.getWidth(null);
         this.h = this.image.getHeight(null);
-        opacity = 0.5f;
+        opacity = 1.0f;
     }
 
     public Object(Image image, int x, int y, int w, int h) {
@@ -30,13 +30,17 @@ public class Object {
         this.y = y;
         this.w = w;
         this.h = h;
+        opacity = 1.0f;
     }
 
     public Object() {
+        opacity = 1.0f;
     }
 
     public void draw(Graphics2D gg, int camX, int camY) {
+        gg.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
         gg.drawImage(image, x + camX, y + camY, w, h, null);
+        gg.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
     }
 
     public int getY() {return y;}
