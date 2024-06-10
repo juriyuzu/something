@@ -16,16 +16,20 @@ import java.util.HashMap;
 public class MainMenu {
     Panel panel;
     boolean visible;
-    HashMap<String, Object> objects;
+    HashMap<String, Object> objects, objectsMain;
+    HashMap<String, Object> objectsAbout, objectsSettings;
     HashMap<String, Image> imageStock;
     boolean click, press;
     int pressX, pressY;
     float leaderBoards;
+    boolean about, settings;
 
     MainMenu(Panel panel, int width, int height) {
         this.panel = panel;
         visible = true;
         leaderBoards = 1;
+        about = false;
+        settings = false;
 
         // Initialize imageStock
         {
@@ -45,9 +49,12 @@ public class MainMenu {
             imageStock.put("h", new ImageIcon(imagePath + "ExitOn.png").getImage());
             imageStock.put("13", new ImageIcon(imagePath + "LeaderBoardsSign.png").getImage());
             imageStock.put("14", new ImageIcon(imagePath + "LeaderBoardsBoard.png").getImage());
+            imageStock.put("15", new ImageIcon(imagePath + "BackOff.png").getImage());
+            imageStock.put("16", new ImageIcon(imagePath + "BackOn.png").getImage());
+            imageStock.put("17", new ImageIcon(imagePath + "About.jpg").getImage());
         }
 
-        // Initialize objects
+        // Initialize objects + objectsMain
         {
             objects = new HashMap<>();
             objects.put("START 2", new Object(imageStock.get("1"), panel.width / 2, panel.height / 2 + 250, 100, 100));
@@ -63,19 +70,31 @@ public class MainMenu {
                 menuW = (int) (height * aspectRatio);
             }
             objects.put("MENUBG", new Object(imageStock.get("4"), 0, 0, menuW, menuH));
-            objects.put("START BUTTON", new Object(imageStock.get("5"), 0, panel.height / 2 - 50, 200, 80));
-            objects.put("SETTINGS BUTTON", new Object(imageStock.get("7"), 0, panel.height / 2 + 50, 200, 80));
-            objects.put("ABOUT BUTTON", new Object(imageStock.get("9"), 0, panel.height / 2 + 140, 200, 80));
-            objects.put("EXIT_BUTTON", new Object(imageStock.get("9"), 12, panel.height / 2 + 220, 200, 80));
+
+            objectsMain = new HashMap<>();
+            objectsMain.put("START BUTTON", new Object(imageStock.get("5"), 0, panel.height / 2 - 50, 200, 80));
+            objectsMain.put("SETTINGS BUTTON", new Object(imageStock.get("7"), 0, panel.height / 2 + 50, 200, 80));
+            objectsMain.put("ABOUT BUTTON", new Object(imageStock.get("9"), 0, panel.height / 2 + 140, 200, 80));
+            objectsMain.put("EXIT_BUTTON", new Object(imageStock.get("9"), 12, panel.height / 2 + 220, 200, 80));
             int w = 249;
             int h = 1240;
             aspectRatio = (float) w / h;
             w = (int) (panel.height * aspectRatio);
-            objects.put("LEADERBOARDS SIGN", new Object(imageStock.get("13"), panel.width - w, 0, w, panel.height));
+            objectsMain.put("LEADERBOARDS SIGN", new Object(imageStock.get("13"), panel.width - w, 0, w, panel.height));
             w = 1215;
             aspectRatio = (float) w / h;
             w = (int) (panel.height * aspectRatio);
-            objects.put("LEADERBOARDS BOARD", new Object(imageStock.get("14"), panel.width - w, 0, w, panel.height));
+            objectsMain.put("LEADERBOARDS BOARD", new Object(imageStock.get("14"), panel.width - w, 0, w, panel.height));
+        }
+
+        // Initialize objectsAbout + objectsSettings
+        {
+            objectsAbout = new HashMap<>();
+            objectsAbout.put("BACK BUTTON", new Object(imageStock.get("15"), 12, panel.height / 2 + 220, 200, 80));
+            objectsAbout.put("ABOUT", new Object(imageStock.get("17"), panel.width / 2 - 300, panel.height / 2 - 300, 600, 600));
+
+            objectsSettings = new HashMap<>();
+            objectsSettings.put("BACK BUTTON", new Object(imageStock.get("15"), 12, panel.height / 2 + 220, 200, 80));
         }
 
         panel.addMouseListener(new MouseListener() {
@@ -118,86 +137,137 @@ public class MainMenu {
             gg.drawString("main.Main Menu", 0, 50);
         }
 
-        // Hovering effects
-        {
-            if (objects.get("START BUTTON").hovering(panel.curX, panel.curY)) {
-                Object o = objects.get("START BUTTON");
-                o.image = imageStock.get("6");
-            } else {
-                Object o = objects.get("START BUTTON");
-                o.image = imageStock.get("5");
+        for (HashMap.Entry<String, Object> entry : objects.entrySet())
+            entry.getValue().draw(gg, panel.camX, panel.camY);
+
+        if (!about && !settings) {
+            // Hovering effects
+            {
+                if (objectsMain.get("START BUTTON").hovering(panel.curX, panel.curY)) {
+                    Object o = objectsMain.get("START BUTTON");
+                    o.image = imageStock.get("6");
+                } else {
+                    Object o = objectsMain.get("START BUTTON");
+                    o.image = imageStock.get("5");
+                }
+
+                if (objectsMain.get("SETTINGS BUTTON").hovering(panel.curX, panel.curY)) {
+                    Object o = objectsMain.get("SETTINGS BUTTON");
+                    o.image = imageStock.get("8");
+                } else {
+                    Object o = objectsMain.get("SETTINGS BUTTON");
+                    o.image = imageStock.get("7");
+                }
+
+                if (objectsMain.get("ABOUT BUTTON").hovering(panel.curX, panel.curY)) {
+                    Object o = objectsMain.get("ABOUT BUTTON");
+                    o.image = imageStock.get("10");
+                } else {
+                    Object o = objectsMain.get("ABOUT BUTTON");
+                    o.image = imageStock.get("9");
+                }
+
+                if (objectsMain.get("EXIT_BUTTON").hovering(panel.curX, panel.curY)) {
+                    Object o = objectsMain.get("EXIT_BUTTON");
+                    o.image = imageStock.get("h");
+                } else {
+                    Object o = objectsMain.get("EXIT_BUTTON");
+                    o.image = imageStock.get("t");
+                }
+
+                if (objectsMain.get("LEADERBOARDS SIGN").hovering(panel.curX, panel.curY)) {
+                    Object o = objectsMain.get("LEADERBOARDS SIGN");
+                    leaderBoards -= 0.1f;
+                    leaderBoards = Math.clamp(leaderBoards, -1, 2);
+                    o.opacity = Math.clamp(leaderBoards, 0, 1);
+                    objectsMain.get("LEADERBOARDS BOARD").opacity = 1 - o.opacity;
+                } else {
+                    Object o = objectsMain.get("LEADERBOARDS SIGN");
+                    leaderBoards += 0.1f;
+                    leaderBoards = Math.clamp(leaderBoards, -1, 2);
+                    o.opacity = Math.clamp(leaderBoards, 0, 1);
+                    objectsMain.get("LEADERBOARDS BOARD").opacity = 1 - o.opacity;
+                }
             }
 
-            if (objects.get("SETTINGS BUTTON").hovering(panel.curX, panel.curY)) {
-                Object o = objects.get("SETTINGS BUTTON");
-                o.image = imageStock.get("8");
-            } else {
-                Object o = objects.get("SETTINGS BUTTON");
-                o.image = imageStock.get("7");
-            }
-
-            if (objects.get("ABOUT BUTTON").hovering(panel.curX, panel.curY)) {
-                Object o = objects.get("ABOUT BUTTON");
-                o.image = imageStock.get("10");
-            } else {
-                Object o = objects.get("ABOUT BUTTON");
-                o.image = imageStock.get("9");
-            }
-
-            if (objects.get("EXIT_BUTTON").hovering(panel.curX, panel.curY)) {
-                Object o = objects.get("EXIT_BUTTON");
-                o.image = imageStock.get("h");
-            } else {
-                Object o = objects.get("EXIT_BUTTON");
-                o.image = imageStock.get("t");
-            }
-
-            if (objects.get("LEADERBOARDS SIGN").hovering(panel.curX, panel.curY)) {
-                Object o = objects.get("LEADERBOARDS SIGN");
-                leaderBoards -= 0.1f;
-                leaderBoards = Math.clamp(leaderBoards, -1, 2);
-                o.opacity = Math.clamp(leaderBoards, 0, 1);
-                objects.get("LEADERBOARDS BOARD").opacity = 1 - o.opacity;
-            } else {
-                Object o = objects.get("LEADERBOARDS SIGN");
-                leaderBoards += 0.1f;
-                leaderBoards = Math.clamp(leaderBoards, -1, 2);
-                o.opacity = Math.clamp(leaderBoards, 0, 1);
-                objects.get("LEADERBOARDS BOARD").opacity = 1 - o.opacity;
-            }
+            for (HashMap.Entry<String, Object> entry : objectsMain.entrySet())
+                entry.getValue().draw(gg, panel.camX, panel.camY);
         }
+        else if (about) {
+            if (objectsAbout.get("BACK BUTTON").hovering(panel.curX, panel.curY)) {
+                Object o = objectsAbout.get("BACK BUTTON");
+                o.image = imageStock.get("16");
+            } else {
+                Object o = objectsAbout.get("BACK BUTTON");
+                o.image = imageStock.get("15");
+            }
 
-        for (HashMap.Entry<String, Object> entry : objects.entrySet()) entry.getValue().draw(gg, panel.camX, panel.camY);
+            for (HashMap.Entry<String, Object> entry : objectsAbout.entrySet())
+                entry.getValue().draw(gg, panel.camX, panel.camY);
+        }
+        else {
+            if (objectsSettings.get("BACK BUTTON").hovering(panel.curX, panel.curY)) {
+                Object o = objectsSettings.get("BACK BUTTON");
+                o.image = imageStock.get("16");
+            } else {
+                Object o = objectsSettings.get("BACK BUTTON");
+                o.image = imageStock.get("15");
+            }
+
+            for (HashMap.Entry<String, Object> entry : objectsSettings.entrySet())
+                entry.getValue().draw(gg, panel.camX, panel.camY);
+        }
 
         pressFun();
         clickFun();
     }
 
     private void pressFun() {
-        if (press && objects.get("START BUTTON").hovering(panel.curX, panel.curY) && objects.get("START BUTTON").hovering(pressX, pressY)) {
-            Object o = objects.get("START BUTTON");
-            o.image = imageStock.get("6");
-        } else {
-            pressX = -1;
-            pressY = -1;
+        if (!press) return;
 
-            Object o = objects.get("START BUTTON");
-            o.image = imageStock.get("5");
-        }
+//        if (objects.get("START BUTTON").hovering(panel.curX, panel.curY) && objects.get("START BUTTON").hovering(pressX, pressY)) {
+//            Object o = objects.get("START BUTTON");
+//            o.image = imageStock.get("6");
+//        } else {
+//            pressX = -1;
+//            pressY = -1;
+//
+//            Object o = objects.get("START BUTTON");
+//            o.image = imageStock.get("5");
+//        }
     }
 
     private void clickFun() {
         if (!click) return;
 
-        if (objects.get("START BUTTON").hovering(panel.curX, panel.curY)) {
-            visible = false;
-            panel.game.start();
-        }
+        if (!about && !settings) {
+            if (objectsMain.get("START BUTTON").hovering(panel.curX, panel.curY)) {
+                visible = false;
+                panel.game.start();
+            }
 
-        if (objects.get("EXIT_BUTTON").hovering(panel.curX, panel.curY)) {
-            System.exit(0);
+            if (objectsMain.get("EXIT_BUTTON").hovering(panel.curX, panel.curY)) {
+                System.exit(0);
+            }
+
+            if (objectsMain.get("ABOUT BUTTON").hovering(panel.curX, panel.curY)) {
+                about = true;
+            }
+
+            if (objectsMain.get("SETTINGS BUTTON").hovering(panel.curX, panel.curY)) {
+                settings = true;
+            }
         }
-        System.out.println();
+        else {
+            if (about && objectsAbout.get("BACK BUTTON").hovering(panel.curX, panel.curY)) {
+                about = false;
+                settings = false;
+            }
+            if (settings && objectsSettings.get("BACK BUTTON").hovering(panel.curX, panel.curY)) {
+                about = false;
+                settings = false;
+            }
+        }
 
         click = false;
     }

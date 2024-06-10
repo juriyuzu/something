@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="asdf">
-      <change afterPath="$PROJECT_DIR$/src/utilities/WeightedRandom.java" afterDir="false" />
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added leaderboards board opacity effect">
+      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/BackOff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/BackOn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/LeaderBoardsBoard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/mainMenu/LeaderBoardsSign.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/game/tiles/floor7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/game/tiles/floor9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/tiles/Static.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/tiles/Static.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Object.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,16 +42,17 @@
   "keyToString": {
     "Application.Splash.executor": "Run",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/juliu/OneDrive - Asia Pacific College/Documents/School/1st Year/Term 3/DATSTRC/untitled/src/assets/mainMenu",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\mainMenu" />
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\maps" />
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
-      <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\juliu\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\tiles" />
@@ -298,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718004013348</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added leaderboards board opacity effect">
+      <option name="closed" value="true" />
+      <created>1718024780776</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1718024780777</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,6 +337,7 @@
     <MESSAGE value="reverted to smooth movement" />
     <MESSAGE value="ok" />
     <MESSAGE value="asdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdf" />
+    <MESSAGE value="added leaderboards board opacity effect" />
+    <option name="LAST_COMMIT_MESSAGE" value="added leaderboards board opacity effect" />
   </component>
 </project>
