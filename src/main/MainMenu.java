@@ -50,7 +50,7 @@ public class MainMenu {
         objects.put("TITLE", new Object(imageStock.get("3"), 0,25,1000,410));
         int menuW = 1754;
         int menuH = 1240;
-        if (Math.abs(width - menuW) > Math.abs(height - menuH)) {
+        if (Math.abs(width - menuW) < Math.abs(height - menuH)) {
             menuH = (int) ((double) menuH / menuW * width);
             menuW = width;
         } else {

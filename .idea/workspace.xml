@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="added png sequence">
+    <list default="true" id="560bc14f-6c16-432b-b30d-533fbccd98bd" name="Changes" comment="reverted to smooth movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/entities/Follow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Follow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/entities/Wandering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/entities/Wandering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Sound.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,25 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;juriyuzu&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/juriyuzu/something.git&quot;,
-    &quot;accountId&quot;: &quot;eebd148d-431c-4723-b517-d5e99e7d9afc&quot;
-  }
-}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
-}</component>
   <component name="ProjectId" id="2h20mtLFFcyxOoMsD7lV3R5wcxw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,13 +38,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Splash.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jvaquino\OneDrive - Asia Pacific College\Documents\School\1st Year\Term 3\DATSTRC\untitled\src\assets\game\floors\groupBlocks" />
@@ -278,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717915935087</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="reverted to smooth movement">
+      <option name="closed" value="true" />
+      <created>1717916783163</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1717916783163</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,6 +304,7 @@
     <MESSAGE value="added new Sound class" />
     <MESSAGE value="added gif test" />
     <MESSAGE value="added png sequence" />
-    <option name="LAST_COMMIT_MESSAGE" value="added png sequence" />
+    <MESSAGE value="reverted to smooth movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="reverted to smooth movement" />
   </component>
 </project>

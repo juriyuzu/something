@@ -6,6 +6,7 @@ import utilities.AStar;
 import utilities.Node;
 import utilities.Object;
 
+import java.awt.*;
 import java.util.List;
 
 public class Follow {
@@ -26,8 +27,9 @@ public class Follow {
         destination = null;
     }
 
-    public void refresh() {
-
+    public void refresh(Tile destination) {
+        this.destination = destination;
+        findPath();
     }
 
     void findPath() {
